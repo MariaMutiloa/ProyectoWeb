@@ -9,3 +9,4 @@ class Usuario(models.Model):
     fecha_nac = models.DateTimeField('Fecha de nacimiento')
     correo=models.EmailField()
     direccion=models.TextField()
+    contrasenya=models.CharField(max_length=20)
