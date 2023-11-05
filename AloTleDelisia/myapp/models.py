@@ -10,3 +10,4 @@ class Usuario(models.Model):
     correo=models.EmailField()
     direccion=models.TextField()
     contrasenya = models.CharField(max_length=255, default='a')
+
