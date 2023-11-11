@@ -1,26 +1,42 @@
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>VaidrollTeamLogin6</title>
-	<link rel="stylesheet" href="styleLogin.css">	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VaidrollTeamLogin6</title>
+    <link rel="stylesheet" href="{% static 'css/styleLogin.css' %}">    
 </head>
 <body>
-	<div class="cajafuera" align="center">
-		<div class="formulariocaja">
-			<!-- Agrega la div para el logo -->
-			<div class="imgv">
-				<img src="../imagenes/logo.png" alt="Logo">
-			</div>
-			<form method="post" action="" name="vaidrollteam">
-				<div class="formtitulo" align="left">Iniciar sesión</div>
-				<input type="text" name="txtusuario" placeholder="&#128273; Ingresar correo" class="cajaentradatexto">
-				<input type="password" name="txtpassword" placeholder="&#128274; Ingresar contraseña" class="cajaentradatexto">
+    <div class="cajafuera" align="center">
+        <div class="formulariocaja">
+            <div class="imgv">
+                <img src="{% static 'imagenes/logo.png' %}" alt="Logo">
+            </div>
+            <form method="post" action="{% url 'verificarUsuario' %}" name="vaidrollteam">
+				{% csrf_token %}
+				<div class="formtitulo" align="left">Login</div>
+			
+				{% if error_message %}
+					<div style="color: red;">{{ error_message }}</div>
+				{% endif %}
+			
+				<div class="campo-formulario">
+                    {{ form.correo.label_tag }}
+                    {{ form.correo }}
+                </div>
+
+                <div class="campo-formulario">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+			
 				<input type="submit" value="Iniciar sesión" class="botonenviar">
 				<hr>
-				<div>¿Necesitas una cuenta?  <a href="#">Registrar</a></div>
+				<div>¿Necesitas una cuenta? <a href="#">Registrar</a></div>
 			</form>
-		</div> 
-	</div>
+			
+        </div>
+    </div>
 </body>
 </html>
