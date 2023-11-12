@@ -1,0 +1,115 @@
+*
+{
+	box-sizing: border-box;
+	font-family: sans-serif;
+	color:black;
+	
+}
+body
+{
+	margin: 0;
+    padding: 0;
+	 
+}
+.cajafuera
+{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+	overflow: hidden;
+	background: #ffc244ff;	
+
+}
+.formulariocaja
+{
+	background-color: white;
+    width: 450px;
+    height: 600PX;
+    position: relative;
+    margin: auto;
+    padding: 1em;
+	border-radius: 5px;
+	color:white;
+	border:0.1em solid #C2C2C2;
+}
+
+input 
+{
+	display: block;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.cajaentradatexto{
+    width: 80%;
+    padding: 10px;
+	font-size:1em;
+	color:black;
+	border: none;
+	box-sizing: border-box;
+	border-bottom: 1px solid #c3c3c3;
+	background: transparent;
+	margin-bottom: 2em;
+}
+
+.formtitulo
+{
+	margin-top:1.5em;
+	font-size:2em;
+	font-weight: bold;
+	padding-bottom:0.8em;
+	color:black;
+	padding-left:1em;
+}
+
+a
+{
+	text-decoration: none;
+	cursor:pointer;
+	color:#462259;
+	
+}
+.af
+{
+	margin-right:10%;
+	margin-top:5%;
+}
+
+.botonenviar
+{
+    width: 80%;
+    padding: 12px 30px;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+	border:1px solid black;
+	font-size:1.2em;
+	color:white;
+	background-color:black;
+	text-align:center;
+	margin:5%;
+	font-weight: bold;
+	
+}
+
+.imgv
+{	
+		padding:20px;
+}
+.imgv img
+{
+	cursor: pointer;
+	max-width: 20%;
+	height:auto;
+	margin-right:10px;
+	margin-left:10px;
+}
+
+hr
+{
+	width:80%;
+}
+
