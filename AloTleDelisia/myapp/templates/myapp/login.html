@@ -1,42 +1,33 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VaidrollTeamLogin6</title>
-    <link rel="stylesheet" href="{% static 'css/styleLogin.css' %}">    
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>VaidrollTeamLogin6</title>
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'css/styleLogin.css' %}">	
 </head>
 <body>
-    <div class="cajafuera" align="center">
-        <div class="formulariocaja">
-            <div class="imgv">
-                <img src="{% static 'imagenes/logo.png' %}" alt="Logo">
-            </div>
-            <form method="post" action="{% url 'verificarUsuario' %}" name="vaidrollteam">
-				{% csrf_token %}
-				<div class="formtitulo" align="left">Login</div>
-			
-				{% if error_message %}
-					<div style="color: red;">{{ error_message }}</div>
-				{% endif %}
-			
-				<div class="campo-formulario">
-                    {{ form.correo.label_tag }}
-                    {{ form.correo }}
-                </div>
+<div class="cajafuera" align="center">
+ <div class="imgv"/>
+    <img src="{% static 'imagenes/logo.png' %}" alt="Logo"> 
+ </div>
+<div class="formulariocaja">
+    
+<form class="user" method="POST">
+    {% csrf_token %}
+<div class="formtitulo" align="left">Login</div>
 
-                <div class="campo-formulario">
-                    {{ form.password.label_tag }}
-                    {{ form.password }}
-                </div>
-			
-				<input type="submit" value="Iniciar sesión" class="botonenviar">
-				<hr>
-				<div>¿Necesitas una cuenta? <a href="#">Registrar</a></div>
-			</form>
-			
-        </div>
-    </div>
+<input type="text" id="idusername" name="username" placeholder="&#128273; Ingresar usuario" class="cajaentradatexto" >
+
+<input type="password" id="id_password" name="password" placeholder="&#128274; Ingresar password" class="cajaentradatexto">
+<div align="right" class="af"><a href="#">Recuperar contraseña</a></div>
+<input type="submit" value="Iniciar sesión" class="botonenviar">
+<hr>
+<div>¿Necesitas una cuenta?  <a href="#">Registrar</a></div>
+</form>
+</div> 
+
+</div>
 </body>
+
 </html>
