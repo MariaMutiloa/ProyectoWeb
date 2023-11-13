@@ -21,4 +21,4 @@ class CustomLoginView(LoginView):
 
 
 def principal(request):
-    return render(request,'myapp/primera.html')
+    return render(request,'myapp/principal.html')
