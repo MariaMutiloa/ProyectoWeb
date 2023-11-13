@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
+from .models import Producto
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -22,3 +23,11 @@ class CustomLoginView(LoginView):
 
 def principal(request):
     return render(request,'myapp/principal.html')
+
+
+def sushi_box_view(request):
+    productos = Producto.objects.filter(idTipoProducto=1, idRestaurante=1)
+
+    context = {'productos': productos}
+
+    return render(request, 'myapp/sushiDonosti.html', context)

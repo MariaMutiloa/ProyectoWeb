@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sushiDonosti.css' %}">
+    <div class="wrapper">
+        <aside class="sidebar">
+            <h2>Secciones</h2>
+            <ul>
+                <li>Sushi Box</li>
+                <li>Nigiris</li>
+                <li>Sashimi</li>
+                <li>Postre</li>
+                <li>Bebidas</li>
+            </ul>
+        </aside>
+        <div class="main">
+            <div class="primerBloque">
+                <h1>SushiDonosti</h1>
+                <br>
+                <div class="buscador">
+                    <input type="text" class="buscar" placeholder="Busca aquí">
+                    <button class="search-button">&#128269; Buscar</button>
+                </div>
+            </div>
+            <hr>
+            <div class="productos">
+                <h2>Sushi Box</h2>
+                {% for producto in productos %}
+                    <div class="sushiBox">
+                        <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
+                        <div class="contenido-producto">
+                            <h3>{{ producto.nombre }}</h3>
+                            <p>{{ producto.descripcionProducto }}</p>
+                            <p class="precio"><strong>{{ producto.precio }}€</strong></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

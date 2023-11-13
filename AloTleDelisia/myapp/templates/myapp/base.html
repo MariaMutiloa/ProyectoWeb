@@ -9,48 +9,74 @@
     <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
 </head>
 <body>
-        <div class="header-desktop">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col d-flex justify-content-start">
-                        <button class="logo-btn-desktop">
-                            <img src="{% static 'imagenes/logo.png' %}" alt="LOGO" style="width: 35px; height: 35px;">
-                        </button>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <p>ALO TLE DELISIA</p>
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <button class="carrito-btn-desktop">
-                            <img src="{% static 'imagenes/carrito.png' %}" alt="CARRITO" style="width: 35px; height: 35px;">
-                        </button>
-                        <button class="usuario-btn-desktop">
-                            <img src="{% static 'imagenes/perfil.png' %}" alt="USUARIO" style="width: 35px; height: 35px;">
-                        </button>
-                    </div>
-                    <div class="idioma">
-                        <select>
-                            <option value="english">English</option>
-                            <option value="spanish">Spanish</option>
-                        </select>
-                    </div>
-                </div>                
-            </div>
+    <div class="header-desktop">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col d-flex justify-content-start">
+                    <button class="logo-btn-desktop">
+                        <img src="{% static 'imagenes/logo.png' %}" alt="LOGO" style="width: 45px; height: 35px;">
+                    </button>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <p>ALO TLE DELISIA</p>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <button class="carrito-btn-desktop">
+                        <img src="{% static 'imagenes/carrito.png' %}" alt="CARRITO" style="width: 35px; height: 35px;">
+                    </button>
+                    <button class="usuario-btn-desktop">
+                        <img src="{% static 'imagenes/perfil.png' %}" alt="USUARIO" style="width: 35px; height: 35px;">
+                    </button>
+                </div>
+                <div class="idioma">
+                    <select>
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                    </select>
+                </div>
+            </div>                
         </div>
+    </div>
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
-        <footer class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <!-- Contenido del pie de página aquí -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <img src="{% static 'imagenes/logo.png' %}" alt="Logo" class="footer-logo">
+                        <h4>Colabora con nosotros</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>Trabaja con nosotros</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <h4>Enlaces de Interés</h4>
+                        <ul>
+                            <li>Acerca de nosotros</li>
+                            <li>Preguntas frecuentes</li>
+                            <li>Contacto</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <h4>Síguenos</h4>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
