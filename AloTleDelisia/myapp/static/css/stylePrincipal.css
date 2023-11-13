@@ -2,7 +2,6 @@ body {
 	font-family: Arial;
 }
 
-/* ESTILOS DEL HEADER DESKTOP */
 
 .header-desktop {
 	background-color: #ffc244;
@@ -16,7 +15,6 @@ body {
   min-height: 700px;
 }
 
-/*COPIAR FORMATO DE BTN PARA BTN DE USUARIO Y CARRITO*/
 
 .logo-btn-desktop {
   background: none;
@@ -153,7 +151,6 @@ h1 {
     font-weight: 600;
 }
 
-/* Estilos para los círculos de tipo comida */
 .category-btn {
     width: 115px;
     height: 115px;
@@ -292,9 +289,9 @@ h1 {
 }
 
 .footer-logo {
-    width: 100px; /* Ajusta el ancho según tus necesidades */
-    height: auto; /* Para mantener la proporción de aspecto */
-    margin-bottom: 20px; /* Ajusta el margen según tus necesidades */
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 20px; 
 }
 
 .footer-content {
