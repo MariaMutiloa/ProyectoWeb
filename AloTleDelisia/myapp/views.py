@@ -31,3 +31,10 @@ def sushi_box_view(request):
     context = {'productos': productos}
 
     return render(request, 'myapp/sushiDonosti.html', context)
+
+def categoria(request):
+    categoria = Producto.objects.filter(idTipoProducto=1, idRestaurante=1)
+
+    context = {'productos': productos}
+
+    return render(request, 'myapp/sushiDonosti.html', context)
