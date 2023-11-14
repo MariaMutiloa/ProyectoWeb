@@ -21,10 +21,14 @@ def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
     productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)
     productosTipo3 = Producto.objects.filter(idRestaurante=1, idTipoProducto=3)
+    productosTipo4 = Producto.objects.filter(idRestaurante=1, idTipoProducto=4)
+    productosTipo5 = Producto.objects.filter(idRestaurante=1, idTipoProducto=5)
     context = {
         'productosTipo1': productosTipo1,
         'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5
     }
     return render(request, 'myapp/sushiDonosti.html', context)
 
