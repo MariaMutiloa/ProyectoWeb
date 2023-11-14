@@ -10,22 +10,24 @@ def login (request):
 
 
 class CustomLoginView(LoginView):
-    template_name = 'myapp/login.html'  # Ajusta a tu plantilla de inicio de sesión
+    template_name = 'myapp/login.html'  
 
     def form_valid(self, form):
-        # Personaliza la lógica después de un inicio de sesión exitoso
         response = super().form_valid(form)
-
-        # Redirige al usuario a la URL deseada después del inicio de sesión
-        return redirect('principal')  # Ajusta 'home' a tu URL deseada
+        return redirect('principal')  
 
 
 def sushi_box(request):
-    productos = Producto.objects.filter(idTipoProducto=1, idRestaurante=1)
-
-    context = {'productos': productos}
-
+    productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
+    productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)
+    productosTipo3 = Producto.objects.filter(idRestaurante=1, idTipoProducto=3)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3
+    }
     return render(request, 'myapp/sushiDonosti.html', context)
+
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
