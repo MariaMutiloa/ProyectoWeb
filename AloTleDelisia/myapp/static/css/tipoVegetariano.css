@@ -1,0 +1,49 @@
+.contenido-producto {
+    flex-grow: 1;
+}
+
+.contenido-producto h3,
+.contenido-producto p {
+    margin: 0;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.buscar {
+    margin-right: 10px;
+}
+
+aside h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.wrapper {
+    display: flex;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px; 
+}
+
+aside {
+    width: 200px; 
+    background-color: #ffc244; 
+    padding: 20px; 
+}
+
