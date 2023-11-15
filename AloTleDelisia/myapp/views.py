@@ -32,14 +32,6 @@ def listaRestaurantes(request):
     }
     return render(request, 'myapp/tipoVegetariano.html', context)
 
-# def restaurante(request):
-#     restaurantes = idTipoRestaurante.objects.all()
-
-#     context = {'restaurantes': restaurantes}
-
-#     return render(request, 'myapp/principal.html', context)
-
-
 def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
     productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)
@@ -56,6 +48,25 @@ def sushi_box(request):
         'categorias': categorias
     }
     return render(request, 'myapp/sushiDonosti.html', context)
+
+
+def sushi_artist(request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=1)
+    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=2)
+    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=3)
+    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=4)
+    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=5)
+    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
+    categorias=TipoProducto.objects.filter(idRestaurante=2)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/sushiArtist.html', context)
 
 
 def categoria(request):
