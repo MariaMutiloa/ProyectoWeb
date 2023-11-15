@@ -8,11 +8,9 @@
         <aside class="sidebar">
             <h2>Secciones</h2>
             <ul>
-                <li><a href="#sushi">Sushi Box</a></li>
-                <li><a href="#nigiri">Nigiris</a></li>
-                <li><a href="#sashimi">Sashimi</a></li>
-                <li><a href="#postre">Postre</a></li>
-                <li><a href="#bebida">Bebidas</a></li>
+                {% for categoria in categorias %}
+                <li><a href=#{{categoria.nombre}}>{{categoria.nombre}}</a></li>
+                {%endfor%}
             </ul>
         </aside>
         <div class="main">
@@ -26,7 +24,7 @@
             </div>
             <hr>
             <div class="productos">
-                <div id="sushi">
+                <div id="Sushi Box">
                 <h2>Sushi Box</h2>
                 {% for producto in productosTipo1 %}
                     <div class="sushiBox">
@@ -40,7 +38,7 @@
                 {% endfor %}
                 </div>
                 <hr>
-                <div id="nigiri">
+                <div id="Nigiris">
                 <h2>Nigiri</h2>
                 {% for producto in productosTipo2 %}
                     <div class="sushiBox">
@@ -54,7 +52,7 @@
                 {% endfor %}
                 </div>
                 <hr>
-                <div id="sashimi">
+                <div id="Sashami">
                 <h2>Sashimi</h2>
                 {% for producto in productosTipo3 %}
                     <div class="sushiBox">
@@ -68,7 +66,7 @@
                 {% endfor %}
                 </div>  
                 <hr>
-                <div id="postre">
+                <div id="Postres">
                 <h2>Postre</h2>
                 {% for producto in productosTipo4 %}
                     <div class="sushiBox">
@@ -82,7 +80,7 @@
                 {% endfor %}
                 </div>
                 <hr>
-                <div id="bebida">
+                <div id="Bebida">
                 <h2>Bebidas</h2>
                 {% for producto in productosTipo5 %}
                     <div class="sushiBox">

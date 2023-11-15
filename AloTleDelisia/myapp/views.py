@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .models import Producto, TipoRestaurante, Restaurante
+from .models import Producto, TipoRestaurante, TipoProducto, Restaurante
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -46,12 +46,14 @@ def sushi_box(request):
     productosTipo3 = Producto.objects.filter(idRestaurante=1, idTipoProducto=3)
     productosTipo4 = Producto.objects.filter(idRestaurante=1, idTipoProducto=4)
     productosTipo5 = Producto.objects.filter(idRestaurante=1, idTipoProducto=5)
+    categorias=TipoProducto.objects.filter(idRestaurante=1)
     context = {
         'productosTipo1': productosTipo1,
         'productosTipo2': productosTipo2,
         'productosTipo3': productosTipo3,
         'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
     }
     return render(request, 'myapp/sushiDonosti.html', context)
 
