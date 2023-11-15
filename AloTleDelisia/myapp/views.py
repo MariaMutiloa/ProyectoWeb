@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from .models import Producto, TipoRestaurante, TipoProducto
+from .models import Producto, TipoRestaurante, TipoProducto, Restaurante
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -15,6 +15,29 @@ class CustomLoginView(LoginView):
     def form_valid(self, form):
         response = super().form_valid(form)
         return redirect('principal')  
+
+
+def listaRestaurantes(request):
+    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=2)
+    # restauranteTipo2 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
+    # restauranteTipo3 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
+    # restauranteTipo4 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
+    # restauranteTipo5 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
+    context = {
+        'restaurante': restauranteTipo1,
+        # 'restauranteTipo2': restauranteTipo2,
+        # 'restauranteTipo3': restauranteTipo3,
+        # 'restauranteTipo4': restauranteTipo4,
+        # 'restauranteTipo5': restauranteTipo5
+    }
+    return render(request, 'myapp/tipoVegetariano.html', context)
+
+# def restaurante(request):
+#     restaurantes = idTipoRestaurante.objects.all()
+
+#     context = {'restaurantes': restaurantes}
+
+#     return render(request, 'myapp/principal.html', context)
 
 
 def sushi_box(request):
