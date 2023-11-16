@@ -19,18 +19,17 @@ class CustomLoginView(LoginView):
 
 def listaRestaurantes(request):
     restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo2 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo3 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo4 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo5 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
     context = {
         'restaurante': restauranteTipo1,
-        # 'restauranteTipo2': restauranteTipo2,
-        # 'restauranteTipo3': restauranteTipo3,
-        # 'restauranteTipo4': restauranteTipo4,
-        # 'restauranteTipo5': restauranteTipo5
     }
     return render(request, 'myapp/tipoVegetariano.html', context)
+
+def restaurantesSushi(request):
+    restauranteTipo1= Restaurante.objects.filter(idTipoRestaurante=1)
+    context = {
+            'restaurantes': restauranteTipo1,
+        }
+    return render(request, 'myapp/tipoSushi.html', context)
 
 def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
