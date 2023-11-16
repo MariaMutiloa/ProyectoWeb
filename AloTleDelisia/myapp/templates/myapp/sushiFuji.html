@@ -15,7 +15,7 @@
         </aside>
         <div class="main">
             <div class="primerBloque">
-                <h1>SushiDonosti</h1>
+                <h1>Kenji Fuji</h1>
                 <br>
                 <div class="buscador">
                     <input type="text" class="buscar" placeholder="Busca aquí">
@@ -24,8 +24,8 @@
             </div>
             <hr>
             <div class="productos">
-                <div id="productos">
-                <h2>Rollos</h2>
+                <div id="Bandejas">
+                <h2>Bandejas</h2>
                 {% for producto in productosTipo1 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
@@ -38,8 +38,8 @@
                 {% endfor %}
                 </div>
                 <hr>
-                <div id="Nigiri">
-                <h2>Nigiri</h2>
+                <div id="Tartar">
+                <h2>Tartar</h2>
                 {% for producto in productosTipo2 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
@@ -52,8 +52,8 @@
                 {% endfor %}
                 </div>
                 <hr>
-                <div id="Platos">
-                <h2>Platos</h2>
+                <div id="Sashimi">
+                <h2>Sashimi</h2>
                 {% for producto in productosTipo3 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
@@ -66,9 +66,37 @@
                 {% endfor %}
                 </div>  
                 <hr>
+                <div id="Temaki">
+                <h2>Temaki</h2>
+                {% for producto in productosTipo4 %}
+                    <div class="sushiBox">
+                        <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
+                        <div class="contenido-producto">
+                            <h3>{{ producto.nombre }}</h3>
+                            <p>{{ producto.descripcionProducto }}</p>
+                            <p class="precio"><strong>{{ producto.precio }}€</strong></p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <hr>
+                <div id="Postres">
+                <h2>Postres</h2>
+                {% for producto in productosTipo5 %}
+                    <div class="sushiBox">
+                        <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
+                        <div class="contenido-producto">
+                            <h3>{{ producto.nombre }}</h3>
+                            <p>{{ producto.descripcionProducto }}</p>
+                            <p class="precio"><strong>{{ producto.precio }}€</strong></p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <hr>
                 <div id="Bebidas">
                 <h2>Bebidas</h2>
-                {% for producto in productosTipo4 %}
+                {% for producto in productosTipo6 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
                         <div class="contenido-producto">

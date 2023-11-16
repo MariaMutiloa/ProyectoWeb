@@ -82,6 +82,25 @@ def kenji(request):
     }
     return render(request, 'myapp/kenjiSushi.html', context)
 
+def fuji(request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=7, idTipoProducto=16)
+    productosTipo2 = Producto.objects.filter(idRestaurante=7, idTipoProducto=17)
+    productosTipo3 = Producto.objects.filter(idRestaurante=7, idTipoProducto=18)
+    productosTipo4 = Producto.objects.filter(idRestaurante=7, idTipoProducto=19)
+    productosTipo5 = Producto.objects.filter(idRestaurante=7, idTipoProducto=20)
+    productosTipo6 = Producto.objects.filter(idRestaurante=7, idTipoProducto=21)
+    categorias=TipoProducto.objects.filter(idRestaurante=7)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'productosTipo6': productosTipo6,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/sushiFuji.html', context)
+
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
 
