@@ -5,16 +5,16 @@
     <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylerestaurantesSushi.css' %}">
     <div class="wrapper">
-        <aside class="sidebar">
+        <aside class="lado">
             <h2>Restaurantes disponibles</h2>
             <ul>
-                {% for un_restaurante in restaurantes %}
-                    <li><a href="{% url un_restaurante.nombre %}" class="restaurante-link">{{ un_restaurante.nombre }}</a></li>
+                {% for unRestaurante in restaurantes %}
+                    <li><a href="{% url unRestaurante.nombre %}" class="restaurante-link">{{ unRestaurante.nombre }}</a></li>
                 {% endfor %}
             </ul>
         </aside>
 
-        <main class="main-content">
+        <main class="principal">
             <div class="primerBloque">
                 <br>
                 <div class="buscador">
@@ -23,11 +23,11 @@
                 </div>
             </div>
             <div class="restaurantes">
-                {% for un_restaurante in restaurantes %}
-                    <a href="{% url un_restaurante.nombre %}" class="restaurante-link">
+                {% for unRestaurante in restaurantes %}
+                    <a href="{% url unRestaurante.nombre %}" class="restaurante-link">
                         <div class="restaurante1">
-                            <img src="{% static 'imagenes/' %}{{ un_restaurante.nombre|lower }}.png" alt="{{ un_restaurante.nombre }}">
-                            <p>{{ un_restaurante.nombre }}</p>
+                            <img src="{% static 'imagenes/' %}{{ unRestaurante.nombre|lower }}.png" alt="{{ unRestaurante.nombre }}">
+                            <p>{{ unRestaurante.nombre }}</p>
                         </div>
                     </a>
                 {% endfor %}
