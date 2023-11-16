@@ -39,7 +39,7 @@
                 </div>
                 <hr>
                 <div id="Sushi">
-                <h2>Sushi</h2>
+                <h2>Bandeja de sushi</h2>
                 {% for producto in productosTipo2 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
@@ -55,7 +55,7 @@
                 <div id="Nigiri">
                 <h2>Nigiri</h2>
                 {% for producto in productosTipo3 %}
-                    <div class="Nigiri">
+                    <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
                         <div class="contenido-producto">
                             <h3>{{ producto.nombre }}</h3>
@@ -83,20 +83,6 @@
                 <div id="Temaki">
                 <h2>Temaki</h2>
                 {% for producto in productosTipo5 %}
-                    <div class="sushiBox">
-                        <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
-                        <div class="contenido-producto">
-                            <h3>{{ producto.nombre }}</h3>
-                            <p>{{ producto.descripcionProducto }}</p>
-                            <p class="precio"><strong>{{ producto.precio }}€</strong></p>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-                <hr>
-                <div id="Variados">
-                <h2>Variados</h2>
-                {% for producto in productosTipo6 %}
                     <div class="sushiBox">
                         <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;">
                         <div class="contenido-producto">
