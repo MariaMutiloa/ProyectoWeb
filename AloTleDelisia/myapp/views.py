@@ -134,10 +134,36 @@ def udon (request):
     return render(request, 'myapp/udon.html', context)
 
 def shifu (request):
-    return render(request, 'myapp/ramenShifu.html')
+    productosTipo1 = Producto.objects.filter(idRestaurante=9, idTipoProducto=26)
+    productosTipo2 = Producto.objects.filter(idRestaurante=9, idTipoProducto=27)
+    productosTipo3 = Producto.objects.filter(idRestaurante=9, idTipoProducto=28)
+    productosTipo4 = Producto.objects.filter(idRestaurante=9, idTipoProducto=29)
+    productosTipo5 = Producto.objects.filter(idRestaurante=9, idTipoProducto=30)
+    categorias=TipoProducto.objects.filter(idRestaurante=9)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/ramenShifu.html', context)
 
 def yokohama (request):
-    return render(request, 'myapp/yokohama.html')
+    productosTipo2 = Producto.objects.filter(idRestaurante=10, idTipoProducto=32)
+    productosTipo3 = Producto.objects.filter(idRestaurante=10, idTipoProducto=33)
+    productosTipo4 = Producto.objects.filter(idRestaurante=10, idTipoProducto=34)
+    productosTipo5 = Producto.objects.filter(idRestaurante=10, idTipoProducto=35)
+    categorias=TipoProducto.objects.filter(idRestaurante=10)
+    context = {
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/yokohama.html', context)
 
 
 def categoria(request):
