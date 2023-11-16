@@ -23,7 +23,7 @@
 					{% for categoria in categorias %}
 					{% if categoria.idTipoRestaurante == 1 %}
 					<div class="category-btn">
-						<a href="{% url 'SushiDonosti' %}" class="category-link">
+						<a href="{% url 'sushi' %}" class="category-link">
 							<img src="{% static 'imagenes/sushi1.png' %}" alt="{{ categoria.nombre }}" width="65px">
 							<p>{{ categoria.nombre|upper }}</p>
 						</a>

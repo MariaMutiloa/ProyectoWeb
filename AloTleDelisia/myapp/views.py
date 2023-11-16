@@ -19,18 +19,17 @@ class CustomLoginView(LoginView):
 
 def listaRestaurantes(request):
     restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo2 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo3 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo4 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
-    # restauranteTipo5 = TipoRestaurante.objects.filter(idTipoRestaurante=2)
     context = {
         'restaurante': restauranteTipo1,
-        # 'restauranteTipo2': restauranteTipo2,
-        # 'restauranteTipo3': restauranteTipo3,
-        # 'restauranteTipo4': restauranteTipo4,
-        # 'restauranteTipo5': restauranteTipo5
     }
     return render(request, 'myapp/tipoVegetariano.html', context)
+
+def restaurantesSushi(request):
+    restauranteTipo1= Restaurante.objects.filter(idTipoRestaurante=1)
+    context = {
+            'restaurantes': restauranteTipo1,
+        }
+    return render(request, 'myapp/tipoSushi.html', context)
 
 def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
@@ -51,12 +50,12 @@ def sushi_box(request):
 
 
 def sushi_artist(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=1)
-    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=2)
-    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=3)
-    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=4)
-    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=5)
-    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
+    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
+    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=7)
+    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=8)
+    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=9)
+    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=10)
+    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=11)
     categorias=TipoProducto.objects.filter(idRestaurante=2)
     context = {
         'productosTipo1': productosTipo1,
