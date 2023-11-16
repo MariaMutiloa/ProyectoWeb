@@ -67,6 +67,20 @@ def sushi_artist(request):
     }
     return render(request, 'myapp/sushiArtist.html', context)
 
+def kenji(request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=6, idTipoProducto=12)
+    productosTipo2 = Producto.objects.filter(idRestaurante=6, idTipoProducto=13)
+    productosTipo3 = Producto.objects.filter(idRestaurante=6, idTipoProducto=14)
+    productosTipo4 = Producto.objects.filter(idRestaurante=6, idTipoProducto=15)
+    categorias=TipoProducto.objects.filter(idRestaurante=6)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/kenjiSushi.html', context)
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()

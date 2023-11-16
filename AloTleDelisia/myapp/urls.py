@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import CustomLoginView, index
-from .views import sushi_box, categoria, listaRestaurantes, sushi_artist, restaurantesSushi
+from .views import sushi_box, categoria, listaRestaurantes, sushi_artist, restaurantesSushi, kenji
 
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     path('sushi', restaurantesSushi, name='sushi'),
     path('SushiDonosti', sushi_box, name='SushiDonosti'),
     path('RestaurantesVegetarianos', listaRestaurantes, name='vegetariano'),
-    path('SushiArtist', sushi_artist, name= 'Sushi Artist')
+    path('SushiArtist', sushi_artist, name= 'Sushi Artist'),
+    path('KenjiBar', kenji, name='Kenji Sushi Bar')
 ]
 
