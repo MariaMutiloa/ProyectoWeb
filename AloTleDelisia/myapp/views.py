@@ -119,7 +119,19 @@ def fuji(request):
     return render(request, 'myapp/sushiFuji.html', context)
 
 def udon (request):
-    return render(request, 'myapp/udon.html')
+    productosTipo1 = Producto.objects.filter(idRestaurante=8, idTipoProducto=22)
+    productosTipo2 = Producto.objects.filter(idRestaurante=8, idTipoProducto=23)
+    productosTipo3 = Producto.objects.filter(idRestaurante=8, idTipoProducto=24)
+    productosTipo4 = Producto.objects.filter(idRestaurante=8, idTipoProducto=25)
+    categorias=TipoProducto.objects.filter(idRestaurante=8)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/udon.html', context)
 
 def shifu (request):
     return render(request, 'myapp/ramenShifu.html')
