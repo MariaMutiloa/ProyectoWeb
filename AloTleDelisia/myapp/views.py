@@ -9,6 +9,16 @@ def login (request):
     return render (request,'myapp/login')
 
 
+def verdeWok (request):
+    return render(request, 'myapp/verdeWok.html')
+
+def sinfoniaVegana (request):
+    return render(request, 'myapp/sinfoniaVegana.html')
+
+def jardinDeSabores (request):
+    return render(request, 'myapp/jardinDeSabores.html')
+
+
 class CustomLoginView(LoginView):
     template_name = 'myapp/login.html'  
 
@@ -20,7 +30,7 @@ class CustomLoginView(LoginView):
 def listaRestaurantes(request):
     restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=2)
     context = {
-        'restaurante': restauranteTipo1,
+        'restaurantes': restauranteTipo1,
     }
     return render(request, 'myapp/tipoVegetariano.html', context)
 

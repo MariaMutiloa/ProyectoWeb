@@ -1,65 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
-<link rel="stylesheet" href="{% static 'css/tipoVegetariano.css' %}">
-<div class="wrapper">
-    <aside class="sidebar">
-        <h2>Restaurantes disponibles</h2>
-        <ul>
-            {% for restaurante in restaurante %}
-            <li><a href=#{{restaurante.nombre}}>{{restaurante.nombre}}</a></li>
-            {% endfor %}
-        </ul>
-    </aside>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylerestaurantesSushi.css' %}">
+    <div class="wrapper">
+        <aside class="lado">
+            <h2>Restaurantes disponibles</h2>
+            <ul>
+                {% for unRestaurante in restaurantes %}
+                    <li><a href="{% url unRestaurante.nombre %}" class="restaurante-link">{{ unRestaurante.nombre }}</a></li>
+                {% endfor %}
+            </ul>
+        </aside>
 
-    <div class="TipoVegetariano">
-        <div class="primerBloque">
-            <h1>¡COMETE LA PLANTA QUE QUIERAS!</h1>
-            <br>
-            <div class="buscador">
-                <input type="text" class="buscar" placeholder="Busca aquí">
-                <button class="search-button">&#128269; Buscar</button>
+        <main class="principal">
+            <div class="primerBloque">
+                <br>
+                <div class="buscador">
+                    <input type="text" class="buscar" placeholder="Busca aquí">
+                    <button class="search-button">&#128269; Buscar</button>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="restaurantes">
-            <div id="VerdeWok">
-                <h2>VerdeWok Restaurante</h2>
-                {% for restaurante in restaurante %}
-
+            <div class="restaurantes">
+                {% for unRestaurante in restaurantes %}
+                    <a href="{% url unRestaurante.nombre %}" class="restaurante-link">
+                        <div class="restaurante1">
+                            <img src="{% static 'imagenes/' %}{{ unRestaurante.nombre|lower }}.png" alt="{{ unRestaurante.nombre }}">
+                            <p>{{ unRestaurante.nombre }}</p>
+                        </div>
+                    </a>
                 {% endfor %}
             </div>
-            <hr>
-            <div id="SinfoniaVegana">
-                <h2>Sinfonia Vegana China</h2>
-                {% for restaurante in restaurante %}
-
-                {% endfor %}
-            </div>
-            <hr>
-            <div id="JardinDeSabores">
-                <h2>Jardín de sabores asiáticos</h2>
-                {% for restaurante in restaurante %}
-
-                {% endfor %}
-            </div>
-            <hr>
-            <div id="LotusLongue">
-                <h2>Lotus Loungue Vegetariano</h2>
-                {% for restaurante in restaurante %}
-
-                {% endfor %}
-            </div>
-            <hr>
-            <div id="ZenPlato">
-                <h2>ZenPlato: Delicias Vegetarianas Chinas</h2>
-                {% for restaurante in restaurante %}
-
-                {% endfor %}
-            </div>
-        </div>
+        </main>
     </div>
-</div>
 {% endblock %}
