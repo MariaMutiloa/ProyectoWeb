@@ -50,12 +50,12 @@ def sushi_box(request):
 
 
 def sushi_artist(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=1)
-    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=2)
-    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=3)
-    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=4)
-    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=5)
-    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
+    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
+    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=7)
+    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=8)
+    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=9)
+    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=10)
+    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=11)
     categorias=TipoProducto.objects.filter(idRestaurante=2)
     context = {
         'productosTipo1': productosTipo1,
