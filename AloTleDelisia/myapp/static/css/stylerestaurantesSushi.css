@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 20px; /* Agrega espacio entre el buscador y los restaurantes */
+    margin-bottom: 20px; 
 }
 
 .restaurantes {
@@ -28,7 +28,7 @@
 
 .restaurante1 {
     flex: 1;
-    max-width: 250px; /* Ancho máximo del cuadro */
+    max-width: 250px; 
     border: 2px solid #333;
     text-align: center;
     margin-bottom: 20px;
@@ -42,7 +42,7 @@
 
 .restaurante1 img {
     max-width: 100%;
-    max-height: 150px; /* Altura máxima de la imagen */
+    max-height: 150px; 
     display: block;
     margin: 0 auto;
 }
