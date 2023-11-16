@@ -41,6 +41,13 @@ def restaurantesSushi(request):
         }
     return render(request, 'myapp/tipoSushi.html', context)
 
+def listaRamen(request):
+    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=3)
+    context = {
+        'restaurantes': restauranteTipo1,
+    }
+    return render(request, 'myapp/tipoRamen.html', context)
+
 def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
     productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)
@@ -110,6 +117,16 @@ def fuji(request):
         'categorias': categorias
     }
     return render(request, 'myapp/sushiFuji.html', context)
+
+def udon (request):
+    return render(request, 'myapp/udon.html')
+
+def shifu (request):
+    return render(request, 'myapp/ramenShifu.html')
+
+def yokohama (request):
+    return render(request, 'myapp/yokohama.html')
+
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
