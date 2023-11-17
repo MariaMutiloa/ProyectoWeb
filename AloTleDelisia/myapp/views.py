@@ -48,6 +48,13 @@ def listaRamen(request):
     }
     return render(request, 'myapp/tipoRamen.html', context)
 
+def listaFusion(request):
+    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=4)
+    context = {
+        'restaurantes': restauranteTipo1,
+    }
+    return render(request, 'myapp/tipoFusion.html', context)
+
 def sushi_box(request):
     productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
     productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)

@@ -43,6 +43,7 @@
 					{% for categoria in categorias %}
 					{% if categoria.idTipoRestaurante == 4 %}
 					<div class="category-btn">
+						<a href="{% url 'fusion' %}" class="category-link">
 						<img src="{% static 'imagenes/comidaFusion.png' %}" alt="{{ categoria.nombre }}" width="65px">
 						<p>{{ categoria.nombre|upper }}</p>
 					</div>
