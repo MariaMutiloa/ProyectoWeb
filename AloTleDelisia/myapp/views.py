@@ -174,6 +174,15 @@ def yokohama (request):
     }
     return render(request, 'myapp/yokohama.html', context)
 
+def wok (request):
+    return render(request, 'myapp/wokFusion.html')
+
+def sabor (request):
+    return render(request, 'myapp/saborOriental.html')
+
+def este (request):
+    return render(request, 'myapp/especiasDelEste.html')
+
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
