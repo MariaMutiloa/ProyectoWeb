@@ -13,20 +13,18 @@ def login (request):
 
 def verdeWok (request):
     productosTipo1 = Producto.objects.filter(idRestaurante=11, idTipoProducto=37)
-    productosTipo2 = Producto.objects.filter(idRestaurante=11, idTipoProducto=38)
     productosTipo3 = Producto.objects.filter(idRestaurante=11, idTipoProducto=39)
     productosTipo4 = Producto.objects.filter(idRestaurante=11, idTipoProducto=40)
     productosTipo5 = Producto.objects.filter(idRestaurante=11, idTipoProducto=41)
     categorias=TipoProducto.objects.filter(idRestaurante=11)
     context = {
         'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
         'productosTipo3': productosTipo3,
         'productosTipo4': productosTipo4,
         'productosTipo5': productosTipo5,
         'categorias': categorias
     }
-    return render(request, 'myapp/sushiDonosti.html', context)
+    return render(request, 'myapp/verdeWok.html', context)
 
 def sinfoniaVegana (request):
     return render(request, 'myapp/sinfoniaVegana.html')
