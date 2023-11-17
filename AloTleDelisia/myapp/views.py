@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from .models import Producto, TipoRestaurante, TipoProducto, Restaurante
+from django.contrib.auth import logout
+from django.urls import reverse
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -172,3 +174,7 @@ def categoria(request):
     context = {'categorias': categorias}
 
     return render(request, 'myapp/principal.html', context)
+
+def cerrar(request):
+    logout(request)
+    return redirect(reverse('index'))
