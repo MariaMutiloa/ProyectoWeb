@@ -12,11 +12,11 @@ def login (request):
 
 
 def verdeWok (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=11, idTipoProducto=37)
-    productosTipo3 = Producto.objects.filter(idRestaurante=11, idTipoProducto=39)
-    productosTipo4 = Producto.objects.filter(idRestaurante=11, idTipoProducto=40)
-    productosTipo5 = Producto.objects.filter(idRestaurante=11, idTipoProducto=41)
-    categorias=TipoProducto.objects.filter(idRestaurante=11)
+    productosTipo1 = Producto.objects.filter(idRestaurante=3, idTipoProducto=37)
+    productosTipo3 = Producto.objects.filter(idRestaurante=3, idTipoProducto=39)
+    productosTipo4 = Producto.objects.filter(idRestaurante=3, idTipoProducto=40)
+    productosTipo5 = Producto.objects.filter(idRestaurante=3, idTipoProducto=41)
+    categorias=TipoProducto.objects.filter(idRestaurante=3)
     context = {
         'productosTipo1': productosTipo1,
         'productosTipo3': productosTipo3,
@@ -27,10 +27,35 @@ def verdeWok (request):
     return render(request, 'myapp/verdeWok.html', context)
 
 def sinfoniaVegana (request):
-    return render(request, 'myapp/sinfoniaVegana.html')
+    productosTipo1 = Producto.objects.filter(idRestaurante=4, idTipoProducto=42)
+    productosTipo3 = Producto.objects.filter(idRestaurante=4, idTipoProducto=43)
+    productosTipo4 = Producto.objects.filter(idRestaurante=4, idTipoProducto=44)
+    productosTipo5 = Producto.objects.filter(idRestaurante=4, idTipoProducto=45)
+    categorias=TipoProducto.objects.filter(idRestaurante=4)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/sinfoniaVegana.html', context)
+    
 
 def jardinDeSabores (request):
-    return render(request, 'myapp/jardinDeSabores.html')
+    productosTipo1 = Producto.objects.filter(idRestaurante=5, idTipoProducto=46)
+    productosTipo3 = Producto.objects.filter(idRestaurante=5, idTipoProducto=47)
+    productosTipo4 = Producto.objects.filter(idRestaurante=5, idTipoProducto=48)
+    productosTipo5 = Producto.objects.filter(idRestaurante=5, idTipoProducto=49)
+    categorias=TipoProducto.objects.filter(idRestaurante=5)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
+    return render(request, 'myapp/jardinDeSabores.html', context)
 
 
 class CustomLoginView(LoginView):
