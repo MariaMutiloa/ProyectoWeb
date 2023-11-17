@@ -175,12 +175,59 @@ def yokohama (request):
     return render(request, 'myapp/yokohama.html', context)
 
 def wok (request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=11, idTipoProducto=37)
+    productosTipo2 = Producto.objects.filter(idRestaurante=11, idTipoProducto=38)
+    productosTipo3 = Producto.objects.filter(idRestaurante=11, idTipoProducto=39)
+    productosTipo4 = Producto.objects.filter(idRestaurante=11, idTipoProducto=40)
+    productosTipo5 = Producto.objects.filter(idRestaurante=11, idTipoProducto=41)
+
+    categorias=TipoProducto.objects.filter(idRestaurante=11)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
     return render(request, 'myapp/wokFusion.html')
 
 def sabor (request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=12, idTipoProducto=42)
+    productosTipo2 = Producto.objects.filter(idRestaurante=12, idTipoProducto=43)
+    productosTipo3 = Producto.objects.filter(idRestaurante=12, idTipoProducto=44)
+    productosTipo4 = Producto.objects.filter(idRestaurante=12, idTipoProducto=45)
+    productosTipo5 = Producto.objects.filter(idRestaurante=12, idTipoProducto=46)
+
+    categorias=TipoProducto.objects.filter(idRestaurante=12)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'categorias': categorias
+    }
     return render(request, 'myapp/saborOriental.html')
 
 def este (request):
+    productosTipo1 = Producto.objects.filter(idRestaurante=13, idTipoProducto=47)
+    productosTipo2 = Producto.objects.filter(idRestaurante=13, idTipoProducto=48)
+    productosTipo3 = Producto.objects.filter(idRestaurante=13, idTipoProducto=49)
+    productosTipo4 = Producto.objects.filter(idRestaurante=13, idTipoProducto=50)
+    productosTipo5 = Producto.objects.filter(idRestaurante=13, idTipoProducto=51)
+    productosTipo6 = Producto.objects.filter(idRestaurante=13, idTipoProducto=52)
+
+    categorias=TipoProducto.objects.filter(idRestaurante=13)
+    context = {
+        'productosTipo1': productosTipo1,
+        'productosTipo2': productosTipo2,
+        'productosTipo3': productosTipo3,
+        'productosTipo4': productosTipo4,
+        'productosTipo5': productosTipo5,
+        'productosTipo6': productosTipo6,
+        'categorias': categorias
+    }
     return render(request, 'myapp/especiasDelEste.html')
 
 
