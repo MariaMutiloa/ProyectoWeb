@@ -16,7 +16,7 @@
 					<div class="category-btn">
 					<a href="{% url 'listaRestaurantes' idTipoRestaurante='2'%}">
 						<img src="{% static 'imagenes/zanahoria.png' %}" alt="{{ categoria.nombre }}" width="65px">
-						<p>VEGETARIANO</p>
+						<p>{{categoria.nombre}}</p>
 					</a>
 					</div>
 					{%endif%}
@@ -26,7 +26,7 @@
 					<div class="category-btn">
 						<a href="{% url 'listaRestaurantes' idTipoRestaurante='1' %}">
 							<img src="{% static 'imagenes/sushi1.png' %}" alt="{{ categoria.nombre }}" width="65px">
-							<p>SUSHIKI</p>
+							<p>{{categoria.nombre}}</p>
 						</a>
 					</div>
 					{%endif%}
@@ -36,7 +36,7 @@
 					<div class="category-btn">
 						<a href="{% url 'listaRestaurantes' idTipoRestaurante='3' %}">
 							<img src="{% static 'imagenes/ramen.png' %}" alt="{{ categoria.nombre }}" width="65px">
-							<p>RAMEN</p>
+							<p>{{categoria.nombre}}</p>
 						</a>
 					</div>
 					{%endif%}
@@ -46,7 +46,7 @@
 					<div class="category-btn">
 						<a href="{% url 'listaRestaurantes' idTipoRestaurante='4' %}">
 							<img src="{% static 'imagenes/comidaFusion.png' %}" alt="{{ categoria.nombre }}" width="65px">
-							<p>FUSION</p>
+							<p>{{categoria.nombre}}</p>
 						</a>
 					</div>
 					{%endif%}
