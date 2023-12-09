@@ -15,8 +15,8 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'myapp/primera.html')
 
-def listaRestaurantes(request, nombreTipo=None):
-    tipoRestaurante = get_object_or_404(TipoRestaurante, nombre=nombreTipo) 
+def listaRestaurantes(request, idTipoRestaurante):
+    tipoRestaurante = get_object_or_404(TipoRestaurante, idTipoRestaurante=idTipoRestaurante)
     restaurantes = tipoRestaurante.restaurante_set.all()
 
     context = {
