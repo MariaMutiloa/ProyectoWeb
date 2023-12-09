@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CustomLoginView, index
+from .views import index
 from .views import categoria, listaRestaurantes,cerrar,restaurante,guardar_pedido,login
 
 
