@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 class Pedido(models.Model):
     idPedido = models.AutoField(primary_key=True)
     importePedido = models.DecimalField(max_digits=10, decimal_places=2)
-    dia = models.DateField()
     username = models.ForeignKey(User, on_delete=models.CASCADE)
     id_restaurante = models.ForeignKey('Restaurante', on_delete=models.CASCADE)
 
@@ -48,6 +47,7 @@ class PedidoProducto(models.Model):
     idPedidoProducto = models.AutoField(primary_key=True)
     idPedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
 
 class ProductoMenu(models.Model):
     idProductoMenu = models.AutoField(primary_key=True)

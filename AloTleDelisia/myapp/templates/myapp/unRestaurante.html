@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sushiDonosti.css' %}">
+    <div class="wrapper">
+        <aside class="lado">
+            <h2>Secciones</h2>
+            <ul>
+                {% for categoria in categorias %}
+                    <li><a href=#{{categoria.nombre}}>{{categoria.nombre}}</a></li>
+                {% endfor %}
+            </ul>
+        </aside>
+        <div class="main">
+            <div class="primerBloque">
+                <h1 class="restaurante">{{ restaurante.nombre }}</h1>
+                <br>
+                <div class="buscador">
+                    <input type="text" class="buscar" placeholder="Busca aquí">
+                    <button class="search-button">&#128269; Buscar</button>
+                </div>
+            </div>
+            <hr>
+            <div class="contenedor-items">
+                {% for tipo_producto in categorias %}
+                    <div id="{{ tipo_producto.nombre }}">
+                        <h2>{{ tipo_producto.nombre }}</h2>
+                        {% for producto in restaurante.producto_set.all %}
+                            {% if producto.idTipoProducto == tipo_producto %}
+                            <div class="item">
+                                <img src="{% static 'imagenes/' %}{{ producto.nombre|lower }}.png" alt="{{ producto.nombre }}" style="width: 70px; height: 70px;"class="img-item">
+                                <div class="contenido-producto">
+                                <h3 class="titulo-item">{{ producto.nombre }}</h3>
+                                <p>{{ producto.descripcionProducto }}</p>
+                                <p class="precio-item"><strong>{{ producto.precio }}€</strong></p>
+                                </div>
+                                <button class="boton-item">+</button>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="carrito" id="carrito">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+            <div class="carrito-items">
+            </div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">
+                        0€
+                    </span>
+                </div>
+                <button class="btn-pagar">Pagar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var currentUser = "{{ username }}"; 
+    </script>
+    <script>
+        var currentUser = "{{ username }}";
+        var idRestaurante = "{{ restaurante_id }}";  // Usar la variable 'restaurante_id'
+    </script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}

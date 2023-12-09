@@ -12,10 +12,11 @@
             <div class="row d-flex justify-content-center">
 				{% for categoria in categorias %}
 				{% if categoria.idTipoRestaurante == 2 %}
-				<div class="category-btn">
-					<a href="{% url 'vegetariano' %}" class="category-link">
+				<div class="row d-flex justify-content-center">
+					<div class="category-btn">
+					<a href="{% url 'listaRestaurantes' idTipoRestaurante='2'%}">
 						<img src="{% static 'imagenes/zanahoria.png' %}" alt="{{ categoria.nombre }}" width="65px">
-						<p>{{ categoria.nombre|upper }}</p>
+						<p>VEGETARIANO</p>
 					</a>
 					</div>
 					{%endif%}
@@ -23,9 +24,9 @@
 					{% for categoria in categorias %}
 					{% if categoria.idTipoRestaurante == 1 %}
 					<div class="category-btn">
-						<a href="{% url 'sushi' %}" class="category-link">
+						<a href="{% url 'listaRestaurantes' idTipoRestaurante='1' %}">
 							<img src="{% static 'imagenes/sushi1.png' %}" alt="{{ categoria.nombre }}" width="65px">
-							<p>{{ categoria.nombre|upper }}</p>
+							<p>SUSHIKI</p>
 						</a>
 					</div>
 					{%endif%}
@@ -33,23 +34,25 @@
 					{% for categoria in categorias %}
 					{% if categoria.idTipoRestaurante == 3 %}
 					<div class="category-btn">
-						<a href="{% url 'ramen' %}" class="category-link">
-						<img src="{% static 'imagenes/ramen.png' %}" alt="{{ categoria.nombre }}" width="65px">
-						<p>{{ categoria.nombre|upper }}</p>
-					</a>
+						<a href="{% url 'listaRestaurantes' idTipoRestaurante='3' %}">
+							<img src="{% static 'imagenes/ramen.png' %}" alt="{{ categoria.nombre }}" width="65px">
+							<p>RAMEN</p>
+						</a>
 					</div>
 					{%endif%}
 					{%endfor%}
 					{% for categoria in categorias %}
 					{% if categoria.idTipoRestaurante == 4 %}
 					<div class="category-btn">
-						<a href="{% url 'fusion' %}" class="category-link">
-						<img src="{% static 'imagenes/comidaFusion.png' %}" alt="{{ categoria.nombre }}" width="65px">
-						<p>{{ categoria.nombre|upper }}</p>
+						<a href="{% url 'listaRestaurantes' idTipoRestaurante='4' %}">
+							<img src="{% static 'imagenes/comidaFusion.png' %}" alt="{{ categoria.nombre }}" width="65px">
+							<p>FUSION</p>
+						</a>
 					</div>
 					{%endif%}
 					{%endfor%}		
 			</div>
 		</div>
             </div>
+			</div>
 {% endblock %}

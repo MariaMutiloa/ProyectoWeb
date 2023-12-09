@@ -1,262 +1,52 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
-from .models import Producto, TipoRestaurante, TipoProducto, Restaurante
+from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto
 from django.contrib.auth import logout
-from django.urls import reverse
+from datetime import datetime
 
 def index(request):
     return render(request, 'myapp/primera.html')
 
-def login (request):
-    return render (request,'myapp/login')
+def listaRestaurantes(request, idTipoRestaurante):
+    tipoRestaurante = get_object_or_404(TipoRestaurante, idTipoRestaurante=idTipoRestaurante)
+    restaurantes = tipoRestaurante.restaurante_set.all()
 
-
-def verdeWok (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=3, idTipoProducto=37)
-    productosTipo3 = Producto.objects.filter(idRestaurante=3, idTipoProducto=39)
-    productosTipo4 = Producto.objects.filter(idRestaurante=3, idTipoProducto=40)
-    productosTipo5 = Producto.objects.filter(idRestaurante=3, idTipoProducto=41)
-    categorias=TipoProducto.objects.filter(idRestaurante=3)
     context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
+        'tipoRestaurante': tipoRestaurante,
+        'restaurantes': restaurantes,
     }
-    return render(request, 'myapp/verdeWok.html', context)
 
-def sinfoniaVegana (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=4, idTipoProducto=42)
-    productosTipo3 = Producto.objects.filter(idRestaurante=4, idTipoProducto=43)
-    productosTipo4 = Producto.objects.filter(idRestaurante=4, idTipoProducto=44)
-    productosTipo5 = Producto.objects.filter(idRestaurante=4, idTipoProducto=45)
-    categorias=TipoProducto.objects.filter(idRestaurante=4)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/sinfoniaVegana.html', context)
+    return render(request, 'restaurantes.html', context)
+
+from django.shortcuts import render
+from django.shortcuts import render
+
+def restaurante(request, nombreRestaurante):
+    restaurante = get_object_or_404(Restaurante, nombre=nombreRestaurante)
+    productos = Producto.objects.filter(idRestaurante=restaurante)
+    categorias = TipoProducto.objects.filter(producto__idRestaurante=restaurante).distinct()
     
+    # Obtén el ID del restaurante
+    restaurante_id = restaurante.idRestaurante
 
-def jardinDeSabores (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=5, idTipoProducto=46)
-    productosTipo3 = Producto.objects.filter(idRestaurante=5, idTipoProducto=47)
-    productosTipo4 = Producto.objects.filter(idRestaurante=5, idTipoProducto=48)
-    productosTipo5 = Producto.objects.filter(idRestaurante=5, idTipoProducto=49)
-    categorias=TipoProducto.objects.filter(idRestaurante=5)
+    # Obtener el nombre de usuario del usuario autenticado (si está autenticado)
+    username = request.user.username if request.user.is_authenticated else None
+
     context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
+        'restaurante': restaurante,
+        'productos': productos,
+        'categorias': categorias,
+        'username': username,  # Añadir el nombre de usuario al contexto
+        'restaurante_id': restaurante_id,  # Añadir el ID del restaurante al contexto
     }
-    return render(request, 'myapp/jardinDeSabores.html', context)
-
+    return render(request, 'unRestaurante.html', context)
 
 class CustomLoginView(LoginView):
     template_name = 'myapp/login.html'  
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        return redirect('principal')  
-
-
-def listaRestaurantes(request):
-    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=2)
-    context = {
-        'restaurantes': restauranteTipo1,
-    }
-    return render(request, 'myapp/tipoVegetariano.html', context)
-
-def restaurantesSushi(request):
-    restauranteTipo1= Restaurante.objects.filter(idTipoRestaurante=1)
-    context = {
-            'restaurantes': restauranteTipo1,
-        }
-    return render(request, 'myapp/tipoSushi.html', context)
-
-def listaRamen(request):
-    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=3)
-    context = {
-        'restaurantes': restauranteTipo1,
-    }
-    return render(request, 'myapp/tipoRamen.html', context)
-
-def listaFusion(request):
-    restauranteTipo1 = Restaurante.objects.filter(idTipoRestaurante=4)
-    context = {
-        'restaurantes': restauranteTipo1,
-    }
-    return render(request, 'myapp/tipoFusion.html', context)
-
-def sushi_box(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=1, idTipoProducto=1)
-    productosTipo2 = Producto.objects.filter(idRestaurante=1, idTipoProducto=2)
-    productosTipo3 = Producto.objects.filter(idRestaurante=1, idTipoProducto=3)
-    productosTipo4 = Producto.objects.filter(idRestaurante=1, idTipoProducto=4)
-    productosTipo5 = Producto.objects.filter(idRestaurante=1, idTipoProducto=5)
-    categorias=TipoProducto.objects.filter(idRestaurante=1)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/sushiDonosti.html', context)
-
-
-def sushi_artist(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=2, idTipoProducto=6)
-    productosTipo2 = Producto.objects.filter(idRestaurante=2, idTipoProducto=7)
-    productosTipo3 = Producto.objects.filter(idRestaurante=2, idTipoProducto=8)
-    productosTipo4 = Producto.objects.filter(idRestaurante=2, idTipoProducto=9)
-    productosTipo5 = Producto.objects.filter(idRestaurante=2, idTipoProducto=10)
-    productosTipo6 = Producto.objects.filter(idRestaurante=2, idTipoProducto=11)
-    categorias=TipoProducto.objects.filter(idRestaurante=2)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/sushiArtist.html', context)
-
-def kenji(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=6, idTipoProducto=12)
-    productosTipo2 = Producto.objects.filter(idRestaurante=6, idTipoProducto=13)
-    productosTipo3 = Producto.objects.filter(idRestaurante=6, idTipoProducto=14)
-    productosTipo4 = Producto.objects.filter(idRestaurante=6, idTipoProducto=15)
-    categorias=TipoProducto.objects.filter(idRestaurante=6)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/kenjiSushi.html', context)
-
-def fuji(request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=7, idTipoProducto=16)
-    productosTipo2 = Producto.objects.filter(idRestaurante=7, idTipoProducto=17)
-    productosTipo3 = Producto.objects.filter(idRestaurante=7, idTipoProducto=18)
-    productosTipo4 = Producto.objects.filter(idRestaurante=7, idTipoProducto=19)
-    productosTipo5 = Producto.objects.filter(idRestaurante=7, idTipoProducto=20)
-    productosTipo6 = Producto.objects.filter(idRestaurante=7, idTipoProducto=21)
-    categorias=TipoProducto.objects.filter(idRestaurante=7)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'productosTipo6': productosTipo6,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/sushiFuji.html', context)
-
-def udon (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=8, idTipoProducto=22)
-    productosTipo2 = Producto.objects.filter(idRestaurante=8, idTipoProducto=23)
-    productosTipo3 = Producto.objects.filter(idRestaurante=8, idTipoProducto=24)
-    productosTipo4 = Producto.objects.filter(idRestaurante=8, idTipoProducto=25)
-    categorias=TipoProducto.objects.filter(idRestaurante=8)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/udon.html', context)
-
-def shifu (request):
-    productosTipo1 = Producto.objects.filter(idRestaurante=9, idTipoProducto=26)
-    productosTipo2 = Producto.objects.filter(idRestaurante=9, idTipoProducto=27)
-    productosTipo3 = Producto.objects.filter(idRestaurante=9, idTipoProducto=28)
-    productosTipo4 = Producto.objects.filter(idRestaurante=9, idTipoProducto=29)
-    productosTipo5 = Producto.objects.filter(idRestaurante=9, idTipoProducto=30)
-    categorias=TipoProducto.objects.filter(idRestaurante=9)
-    context = {
-        'productosTipo1': productosTipo1,
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/ramenShifu.html', context)
-
-def yokohama (request):
-    productosTipo2 = Producto.objects.filter(idRestaurante=10, idTipoProducto=32)
-    productosTipo3 = Producto.objects.filter(idRestaurante=10, idTipoProducto=33)
-    productosTipo4 = Producto.objects.filter(idRestaurante=10, idTipoProducto=34)
-    productosTipo5 = Producto.objects.filter(idRestaurante=10, idTipoProducto=35)
-    categorias=TipoProducto.objects.filter(idRestaurante=10)
-    context = {
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/yokohama.html', context)
-
-def wok (request):
-    productosTipo2 = Producto.objects.filter(idRestaurante=11, idTipoProducto=50)
-    productosTipo3 = Producto.objects.filter(idRestaurante=11, idTipoProducto=51)
-    productosTipo4 = Producto.objects.filter(idRestaurante=11, idTipoProducto=52)
-    productosTipo5 = Producto.objects.filter(idRestaurante=11, idTipoProducto=53)
-    categorias=TipoProducto.objects.filter(idRestaurante=11)
-    context = {
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/wokFusion.html', context)
-    
-
-def sabor (request):
-    productosTipo2 = Producto.objects.filter(idRestaurante=12, idTipoProducto=54)
-    productosTipo3 = Producto.objects.filter(idRestaurante=12, idTipoProducto=55)
-    productosTipo4 = Producto.objects.filter(idRestaurante=12, idTipoProducto=56)
-    productosTipo5 = Producto.objects.filter(idRestaurante=12, idTipoProducto=57)
-    categorias=TipoProducto.objects.filter(idRestaurante=12)
-    context = {
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/saborOriental.html', context)
-
-def este (request):
-    productosTipo2 = Producto.objects.filter(idRestaurante=13, idTipoProducto=58)
-    productosTipo3 = Producto.objects.filter(idRestaurante=13, idTipoProducto=59)
-    productosTipo4 = Producto.objects.filter(idRestaurante=13, idTipoProducto=60)
-    productosTipo5 = Producto.objects.filter(idRestaurante=13, idTipoProducto=61)
-    categorias=TipoProducto.objects.filter(idRestaurante=13)
-    context = {
-        'productosTipo2': productosTipo2,
-        'productosTipo3': productosTipo3,
-        'productosTipo4': productosTipo4,
-        'productosTipo5': productosTipo5,
-        'categorias': categorias
-    }
-    return render(request, 'myapp/especiasDelEste.html', context)
-
+        return redirect('principal') 
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
@@ -267,4 +57,48 @@ def categoria(request):
 
 def cerrar(request):
     logout(request)
-    return redirect(reverse('index'))
+    return redirect('index')
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from .models import Pedido
+
+from django.http import JsonResponse
+import json
+
+def guardar_pedido(request):
+    if request.method == 'POST':
+        # Retrieve the order data from the request
+        importePedido = request.POST['importePedido']
+        username = request.POST['username']
+        id_restaurante = request.POST.get('id_restaurante')
+        restaurante = Restaurante.objects.get(pk=id_restaurante)
+
+        # Create a new Pedido instance
+        pedido = Pedido()
+        pedido.importePedido = importePedido
+        pedido.username = User.objects.get(username=username)
+        pedido.id_restaurante = restaurante
+        pedido.save()
+
+        # Retrieve product details from the request (as a JSON string)
+        productos_json = request.POST.get('productos')
+
+        # Convert the JSON string to a Python list of dictionaries
+        productos = json.loads(productos_json)
+
+        # Create ProductoPedido instances related to the order
+        for producto in productos:
+            producto_pedido = PedidoProducto()
+            producto_pedido.idPedido = pedido
+            producto_pedido.idProducto = Producto.objects.get(nombre=producto['titulo'])
+            producto_pedido.cantidad = producto['cantidad']
+            producto_pedido.save()
+
+        # Return a JSON response indicating success
+        return JsonResponse({'message': 'Pedido guardado exitosamente'})
+
+    # Handle GET requests or other HTTP methods
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
+
