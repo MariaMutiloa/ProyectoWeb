@@ -41,16 +41,11 @@ botonPagar.style.display = 'block'
 function pagarClicked() {
     alert('Gracias por comprar');
 
-    // Retrieve the total from the cart
     var total = parseFloat(document.getElementsByClassName('carrito-precio-total')[0].innerText.replace('€', '').replace(',', '.'));
 
-    // Get the logged-in user (assuming 'username' variable has been defined previously)
     var username = currentUser;
 
-    // Get the restaurant ID
     var restaurante = idRestaurante;
-
-    // Retrieve the list of items from the cart
     var carritoItems = document.getElementsByClassName('carrito-item');
     var productos = [];
     for (var i = 0; i < carritoItems.length; i++) {
@@ -58,8 +53,7 @@ function pagarClicked() {
         var titulo = item.getElementsByClassName('carrito-item-titulo')[0].innerText;
         var precio = parseFloat(item.getElementsByClassName('carrito-item-precio')[0].innerText.replace('€', '').replace(',', '.'));
         var cantidad = parseInt(item.getElementsByClassName('carrito-item-cantidad')[0].value);
-        
-        // Construct each product object and add it to the list
+     
         var producto = {
             titulo: titulo,
             precio: precio,
@@ -68,10 +62,7 @@ function pagarClicked() {
         productos.push(producto);
     }
 
-    // Convert the 'productos' array to a JSON string
     var productosJSON = JSON.stringify(productos);
-
-    // Send the order data along with the list of products to the server
     
 $.ajax({
     url: '/pedidos/guardar',
@@ -80,13 +71,13 @@ $.ajax({
         importePedido: total,
         username: username,
         id_restaurante: restaurante,
-        productos: productosJSON  // Send the JSON string of products to the server
+        productos: productosJSON  
     },
     error: function(jqXHR, textStatus, errorThrown) {
         console.log("Error:", textStatus, errorThrown);
     },
     success: function(data) {
-        // Log the data after the AJAX request has been successful
+
         console.log(data);
 
         var carritoContenedor = document.querySelector('.carrito-items');
