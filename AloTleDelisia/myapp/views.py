@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from .models import Pedido
 from django.http import JsonResponse
 import json
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -42,12 +44,22 @@ def restaurante(request, nombreRestaurante):
     }
     return render(request, 'unRestaurante.html', context)
 
-class CustomLoginView(LoginView):
-    template_name = 'myapp/login.html'  
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        return redirect('principal') 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('principal')  # Cambia 'principal' por la URL a la que quieres redirigir después del inicio de sesión
+        else:
+            # Manejar el caso en el que la autenticación falla, por ejemplo, mostrar un mensaje de error
+            return render(request, 'myapp/login.html', {'error': 'Credenciales inválidas'})
+
+    return render(request, 'myapp/login.html')
+
 
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
