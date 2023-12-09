@@ -42,7 +42,6 @@ function pagarClicked() {
     alert('Gracias por comprar');
 
     var total = parseFloat(document.getElementsByClassName('carrito-precio-total')[0].innerText.replace('€', '').replace(',', '.'));
-
     var username = currentUser;
 
     var restaurante = idRestaurante;
