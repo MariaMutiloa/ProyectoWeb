@@ -20,7 +20,7 @@ img {
 .usuario-btn-desktop,
 .cerrar-btn-desktop {
     margin-right: 10px;
-    width: 2em; /* Ancho relativo */
+    width: 20em; /* Ancho relativo */
     height: auto;  
 }
 
