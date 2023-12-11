@@ -169,7 +169,6 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc){
     botonRestarCantidad.addEventListener('click',restarCantidad);
 
     actualizarTotalCarrito();
-    ajustarTamañoCarrito();
 }
 
 
@@ -234,10 +233,4 @@ function eliminarItemCarrito(event) {
     botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none'; // Mostrar el botón si hay elementos en el carrito, ocultarlo si no hay
 }
 
-function ajustarTamañoCarrito() {
-    var carrito = document.getElementById('carrito');
-    var carritoItems = carrito.getElementsByClassName('carrito-item');
-    var alturaBase = 150;
-    var alturaCarrito = alturaBase + (carritoItems.length * 50); 
-    carrito.style.height = alturaCarrito + 'px';
-}
+

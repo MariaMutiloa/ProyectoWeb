@@ -8,9 +8,17 @@ img {
 }
 
 .header-desktop {
-	background-color: #ffc244;
-	padding: 35px 0;
-	height: 60px; 
+    background-color: #ffc244;
+    padding: 35px 0; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo-btn-desktop,
+.usuario-btn-desktop,
+.cerrar-btn-desktop {
+    margin-right: 10px; 
 }
 
 .main-desktop {
