@@ -19,7 +19,7 @@
                 <br>
                 <div class="buscador">
                     <input type="text" class="buscar" placeholder="Busca aquí">
-                    <button class="search-button">&#128269; Buscar</button>
+                    <button class="search-button" onclick="filtrarRestaurantes()">&#128269; Buscar</button>
                 </div>
             </div>
             <div class="restaurantes">
@@ -34,4 +34,5 @@
             </div>
         </main>
     </div>
+    <script src="{% static 'js/restaurante.js' %}"></script>
 {% endblock %}
