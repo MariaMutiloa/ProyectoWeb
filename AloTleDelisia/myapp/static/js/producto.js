@@ -7,7 +7,7 @@ function filtrarProductos() {
     var coincideExactamente = nombreProducto === textoBuscado;
     var contieneTexto = nombreProducto.includes(textoBuscado);
 
-    if (textoBuscado === '' || coincideExactamente || contieneTexto) {
+    if (coincideExactamente || contieneTexto || textoBuscado === '') {
       productos[i].style.display = 'block';
     } else {
       productos[i].style.display = 'none';
@@ -15,7 +15,4 @@ function filtrarProductos() {
   }
 }
 
-document.getElementById('btnBuscar').addEventListener('click', function() {
-  console.log('Se ha hecho clic en el botón de búsqueda');
-  filtrarProductos();
-});
+document.querySelector('.buscar').addEventListener('input', filtrarProductos);

@@ -19,8 +19,8 @@
                 <h1 class="restaurante">{{ restaurante.nombre }}</h1>
                 <br>
                 <div class="buscador">
-                    <input id= "inputBuscar" type="text" class="buscar" placeholder="Busca aquí">
-                    <button id= "btnBuscar" class="search-button">&#128269; Buscar</button>
+                    <input type="text" class="buscar" placeholder="Busca aquí">
+                    <button class="search-button">&#128269; Buscar</button>
                 </div>
             </div>
             <hr>
@@ -68,7 +68,7 @@
     </script>
     <script>
         var currentUser = "{{ username }}";
-        var idRestaurante = "{{ restaurante_id }}";  // Usar la variable 'restaurante_id'
+        var idRestaurante = "{{ restaurante_id }}"; 
     </script>    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/app.js' %}"></script>
