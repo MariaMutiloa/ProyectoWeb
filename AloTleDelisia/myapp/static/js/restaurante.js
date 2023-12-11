@@ -1,7 +1,7 @@
 function ocultarTodosLosRestaurantes() {
   var restaurantes = document.getElementsByClassName('restaurante');
   for (var i = 0; i < restaurantes.length; i++) {
-    mostrarRestaurante(restaurantes[i]); // Mostrar todos los restaurantes
+    ocultarRestaurante(restaurantes[i]);
   }
 }
 
@@ -18,7 +18,6 @@ function filtrarRestaurantes() {
   var restaurantes = document.getElementsByClassName('restaurante');
 
   if (textoBuscado === '') {
-    // Si el campo de búsqueda está vacío, mostrar todos los restaurantes
     ocultarTodosLosRestaurantes();
     return;
   }
@@ -30,12 +29,11 @@ function filtrarRestaurantes() {
 
     if (coincideExactamente || contieneTexto) {
       mostrarRestaurante(restaurantes[i]);
-      console.log('Restaurante encontrado:', restaurantes[i].textContent);
     } else {
       ocultarRestaurante(restaurantes[i]);
     }
   }
-  console.log('El botón se ha hecho clic');
+  console.log('El botón se ha hecho clic'); // Verificar si se ha ejecutado la función al hacer clic en el botón
 }
 
 document.getElementById('btnBuscar').addEventListener('click', filtrarRestaurantes);
