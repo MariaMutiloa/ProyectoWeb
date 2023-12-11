@@ -20,6 +20,7 @@ img {
 .usuario-btn-desktop,
 .cerrar-btn-desktop {
     margin-right: 10px; 
+    height: 60px;
 }
 
 .main-desktop {
