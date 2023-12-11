@@ -13,14 +13,13 @@ img {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    height: 60px;
+    font-size: 24px;
 }
 
 .logo-btn-desktop,
 .usuario-btn-desktop,
 .cerrar-btn-desktop {
     margin-right: 10px; 
-    height: 60px;
 }
 
 .main-desktop {
