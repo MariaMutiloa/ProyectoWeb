@@ -5,6 +5,8 @@ if(document.readyState == 'loading'){
 }
 
 function ready() {
+    var botonPagar = document.querySelector('.btn-pagar');
+    botonPagar.style.display = 'none';
     console.log("Botón de pagar seleccionado:", document.getElementsByClassName('btn-pagar')[0]);
     document.getElementsByClassName('btn-pagar')[0].addEventListener('click', pagarClicked);
 
@@ -39,6 +41,8 @@ var botonPagar = document.getElementsByClassName('btn-pagar')[0];
 botonPagar.style.display = 'block'
 
 function pagarClicked() {
+    var direccion = prompt('Por favor, ingresa tu dirección de entrega:');
+    if (direccion !== null && direccion !== '') {
     alert('Gracias por comprar');
 
     var total = parseFloat(document.getElementsByClassName('carrito-precio-total')[0].innerText.replace('€', '').replace(',', '.'));
@@ -86,8 +90,11 @@ $.ajax({
     actualizarTotalCarrito();
     }
 });
-    
+} else {
+    alert('Por favor, ingresa una dirección válida para realizar el pedido.');
 }
+}
+    
 
   
 function agregarAlCarritoClicked(event){
@@ -115,9 +122,7 @@ function hacerVisibleCarrito() {
     var elementosCarrito = document.getElementsByClassName('carrito-item');
     var hayProductos = elementosCarrito.length > 0;
 
-    if (hayProductos) {
-        botonPagar.style.display = 'block';
-    }
+    botonPagar.style.display = hayProductos ? 'block' : 'none'; 
 }
 
 
@@ -205,16 +210,16 @@ function eliminarItemCarrito(event) {
     actualizarTotalCarrito();
   }
 
-function actualizarTotalCarrito() {
-    var carritoContenedor = document.getElementsByClassName('carrito')[0];
+  function actualizarTotalCarrito() {
+    var carritoContenedor = document.querySelector('.carrito-items');
     var carritoItems = carritoContenedor.getElementsByClassName('carrito-item');
     var total = 0;
 
     for (var i = 0; i < carritoItems.length; i++) {
         var item = carritoItems[i];
-        var precioElemento = parseFloat(item.getElementsByClassName('carrito-item-precio')[0].innerText.replace('€', '').replace(',', '.')); // Convertimos el precio a un número flotante
+        var precioElemento = parseFloat(item.querySelector('.carrito-item-precio').innerText.replace('€', '').replace(',', '.')); // Convertimos el precio a un número flotante
 
-        var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
+        var cantidadItem = item.querySelector('.carrito-item-cantidad');
         var cantidad = cantidadItem.value;
 
         total += precioElemento * parseInt(cantidad);
@@ -222,5 +227,8 @@ function actualizarTotalCarrito() {
 
     total = Math.round(total * 100) / 100;
 
-    document.getElementsByClassName('carrito-precio-total')[0].innerText = total.toLocaleString("es", { style: 'currency', currency: 'EUR' });
+    document.querySelector('.carrito-precio-total').innerText = total.toLocaleString("es", { style: 'currency', currency: 'EUR' });
+
+    var botonPagar = document.querySelector('.btn-pagar');
+    botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none'; // Mostrar el botón si hay elementos en el carrito, ocultarlo si no hay
 }
