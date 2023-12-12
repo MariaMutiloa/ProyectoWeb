@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto, Pedido
 from django.contrib.auth import logout
-from datetime import datetime
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 import json
