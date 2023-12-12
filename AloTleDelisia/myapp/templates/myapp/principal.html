@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
     {% load static %}
 	<link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
     <div class="main-desktop">
         <div class="container">
             <div class="row d-flex justify-content-center mt-4">
-                <h1>¿Qué te apetece comer hoy?</h1>
+                <h1>{% trans "¿Qué te apetece comer hoy?" %}</h1>
             </div>
             <br><br><br>
             <div class="row d-flex justify-content-center">

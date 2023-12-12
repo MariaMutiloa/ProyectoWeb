@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-12 13:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\myapp\templates\myapp\base.html:9
+#, fuzzy
+#| msgid "Página Principal"
+msgid "ALO TLE DELISIA - Página Principal"
+msgstr "ALO TLE DELISIA - Main Page"
+
+#: .\myapp\templates\myapp\base.html:56
+msgid "Colabora con nosotros"
+msgstr "Colaborate with us"
+
+#: .\myapp\templates\myapp\base.html:58
+msgid "Trabaja con nosotros"
+msgstr "Work with us"
+
+#: .\myapp\templates\myapp\base.html:64
+msgid "Enlaces de Interés"
+msgstr "Links of interest"
+
+#: .\myapp\templates\myapp\base.html:66
+msgid "Acerca de nosotros"
+msgstr "About us"
+
+#: .\myapp\templates\myapp\base.html:67
+msgid "Preguntas frecuentes"
+msgstr "Usual Questions"
+
+#: .\myapp\templates\myapp\base.html:68
+msgid "Contacto"
+msgstr "Contact us"
+
+#: .\myapp\templates\myapp\base.html:74
+msgid "Síguenos"
+msgstr "Follow us"
+
+#: .\myapp\templates\myapp\primera.html:18
+msgid "Empieza"
+msgstr "Start"
+
+#: .\myapp\templates\myapp\primera.html:22
+msgid "Comida china a domicio"
+msgstr "Chinese food at home"
+
+#: .\myapp\templates\myapp\primera.html:23
+msgid "Comida vegetariana, sushi, ramen y fusión"
+msgstr "Vegetarian food, sushi, ramen and fusion"
+
+#: .\myapp\templates\myapp\principal.html:9
+msgid "¿Qué te apetece comer hoy?"
+msgstr "What do you want to eat today?"
+
+#: .\myapp\templates\myapp\registro.html:7
+#: .\myapp\templates\myapp\registro.html:18
+msgid "Registro"
+msgstr "Sign up"
+
+#: .\myapp\templates\myapp\restaurantes.html:12
+msgid "Restaurantes disponibles"
+msgstr "Available restaurants"
+
+#: .\myapp\templates\myapp\restaurantes.html:24
+#: .\myapp\templates\myapp\unRestaurante.html:23
+msgid "Busca aquí"
+msgstr "Search here"
+
+#: .\myapp\templates\myapp\restaurantes.html:25
+#: .\myapp\templates\myapp\unRestaurante.html:24
+msgid "Buscar"
+msgstr "Search"
+
+#: .\myapp\templates\myapp\unRestaurante.html:11
+msgid "Secciones"
+msgstr "Sections"
+
+#: .\myapp\templates\registration\login.html:20
+#: .\myapp\templates\registration\login.html:26
+msgid "Iniciar Sesión"
+msgstr "Log in"
+
+#: .\myapp\templates\registration\login.html:28
+msgid "¿Necesitas una cuenta?"
+msgstr "Do you need an account?"
+
+#: .\myapp\templates\registration\login.html:28
+msgid "Registrar"
+msgstr "Register"
+
+#, fuzzy
+#~| msgid "Iniciar Sesión"
+#~ msgid "Iniciar sesión"
+#~ msgstr "Log in"

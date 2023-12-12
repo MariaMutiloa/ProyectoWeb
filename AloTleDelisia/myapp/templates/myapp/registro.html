@@ -1,0 +1,26 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% trans "Registro" %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleRegistro.css' %}">
+</head>
+<body>
+    <div class="cajafuera" align="center">
+        <!-- <div class="imgv"/>
+           <img src="{% static 'imagenes/logo.png' %}" alt="Logo"> 
+        </div> -->
+    
+    <div class="formulariocaja">
+    <h2>{% trans "Registro" %}</h2>
+    <form method="post" action="{% url 'registro' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="botonenviar">Registrarse</button>
+    </form>
+    </div>
+</body>
+</html>

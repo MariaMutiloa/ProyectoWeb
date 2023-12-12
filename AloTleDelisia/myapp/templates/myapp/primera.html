@@ -1,4 +1,6 @@
 {% load static %}
+
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,12 +15,12 @@
         <nav>
           <img src="{% static 'imagenes/logo.png' %}" class="logo">  <h1>Alo tle delisia</h2>
            <div>
-            <a href="{% url 'login' %}" class="btn">Empieza</a>
+            <a href="{% url 'login' %}" class="btn">{% trans "Empieza" %}</a>
            </div>
         </nav>
            <div class="content">
-            <h1> Comida china a domicio</h1>
-            <p>Comida vegetariana, sushi, ramen y fusión</p>
+            <h1>{% trans "Comida china a domicio" %}</h1>
+            <p>{% trans "Comida vegetariana, sushi, ramen y fusión" %}</p>
            </div>
            <img src="{% static 'imagenes/sushi.png' %}" class="feature-image animation">
     </div>      

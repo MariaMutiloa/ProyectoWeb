@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import index
-from .views import categoria, listaRestaurantes,cerrar,restaurante,guardar_pedido,login
-
+from .views import categoria, listaRestaurantes,cerrar,restaurante,guardar_pedido,login,register_view
+from django.views.i18n import set_language
 
 urlpatterns = [
     path('', index, name='index'),
@@ -12,6 +12,8 @@ urlpatterns = [
     path('restaurantes/<str:idTipoRestaurante>', listaRestaurantes, name='listaRestaurantes'),
     path('restaurante/', restaurante, name='unRestaurante'),
     path('restaurante/<str:nombreRestaurante>', restaurante, name='restaurante'),
-    path('pedidos/guardar', guardar_pedido, name='guardar_pedido')
+    path('pedidos/guardar', guardar_pedido, name='guardar_pedido'),
+    path('registro/',register_view , name='registro'),
+    path('set_language/', set_language, name='set_language')
 ]
 

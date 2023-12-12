@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load i18n%}
+
 {% block content %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
     <link rel="stylesheet" href="{% static 'css/sushiDonosti.css' %}">
     <div class="wrapper">
         <aside class="lado">
-            <h2>Secciones</h2>
+            <h2>{% trans "Secciones" %}</h2>
             <ul>
                 {% for categoria in categorias %}
                     <li><a href=#{{categoria.nombre}}>{{categoria.nombre}}</a></li>
@@ -18,8 +20,8 @@
                 <h1 class="restaurante">{{ restaurante.nombre }}</h1>
                 <br>
                 <div class="buscador">
-                    <input type="text" class="buscar" placeholder="Busca aquí">
-                    <button class="search-button">&#128269; Buscar</button>
+                    <input type="text" class="buscar" placeholder="{% trans 'Busca aquí' %}">
+                    <button class="search-button">&#128269; {% trans "Buscar" %}</button>
                 </div>
             </div>
             <hr>

@@ -11,6 +11,9 @@ from django.http import JsonResponse
 import json
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import CustomUserCreationForm
+from django.utils import translation
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -61,6 +64,21 @@ def login(request):
     return render(request, 'myapp/login.html')
 
 
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'registro.html', {'form': form})
+
+
+
+
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
 
@@ -104,3 +122,12 @@ def guardar_pedido(request):
 
     return JsonResponse({'error': 'Método no permitido'}, status=405)
 
+def change_language(request):
+    language = request.GET.get('language', 'es')  # 'en' es el idioma predeterminado
+
+    # Cambia el idioma y actualiza la sesión
+    translation.activate(language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = language
+
+    # Redirige a la página desde la que se hizo la solicitud
+    return redirect(request.GET.get('next', '/'))

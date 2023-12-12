@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pedido, TipoProducto, Producto, TipoRestaurante, Restaurante, Menu, PedidoProducto, ProductoMenu
+from .models import Pedido, TipoProducto, Producto, TipoRestaurante, Restaurante, Menu, PedidoProducto, ProductoMenu, CustomUser
 
 # Register your models here.
 admin.site.register(Pedido)
@@ -10,4 +10,5 @@ admin.site.register(Restaurante)
 admin.site.register(Menu)
 admin.site.register(PedidoProducto)
 admin.site.register(ProductoMenu)
+admin.site.register(CustomUser)
 

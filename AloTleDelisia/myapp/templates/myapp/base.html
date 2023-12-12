@@ -1,10 +1,12 @@
 {% load static %}
 
+{% load i18n %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}ALO TLE DELISIA - Página Principal{% endblock %}</title>
+    <title>{% block title %} {% trans "ALO TLE DELISIA - Página Principal" %} {% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
 </head>
@@ -31,9 +33,9 @@
                     </button>
                 </div>
                 <div class="idioma">
-                    <select>
-                        <option value="english">English</option>
-                        <option value="spanish">Spanish</option>
+                    <select id="languageSelect">
+                        <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                        <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
                     </select>
                 </div>
             </div>                
@@ -51,25 +53,25 @@
                 <div class="col-md-4">
                     <div class="footer-content">
                         <a href="{% url 'principal' %}"><img src="{% static 'imagenes/logo.png' %}" alt="Logo" class="footer-logo"></a>
-                        <h4>Colabora con nosotros</h4>
+                        <h4>{% trans "Colabora con nosotros"%}</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li>Trabaja con nosotros</li>
+                            <li>{% trans "Trabaja con nosotros"%}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="footer-content">
-                        <h4>Enlaces de Interés</h4>
+                        <h4>{% trans "Enlaces de Interés"%}</h4>
                         <ul>
-                            <li>Acerca de nosotros</li>
-                            <li>Preguntas frecuentes</li>
-                            <li>Contacto</li>
+                            <li>{% trans "Acerca de nosotros"%}</li>
+                            <li>{% trans "Preguntas frecuentes"%}</li>
+                            <li>{% trans "Contacto"%}</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="footer-content">
-                        <h4>Síguenos</h4>
+                        <h4>{% trans "Síguenos"%}</h4>
                         <ul>
                             <li>Facebook</li>
                             <li>Twitter</li>
@@ -80,5 +82,22 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        // Obtén el elemento select
+        const languageSelect = document.getElementById('languageSelect');
+    
+        // Añade un evento de cambio al select
+        languageSelect.addEventListener('change', function () {
+            // Obtén el valor seleccionado
+            const selectedLanguage = languageSelect.value;
+    
+            // Redirige a la vista con el nuevo idioma
+            window.location.href = `{% url 'set_language' %}?language=${selectedLanguage}`;
+        });
+    </script>
+
+
 </body>
 </html>
