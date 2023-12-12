@@ -1,17 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.views import LoginView
 from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto, Pedido
 from django.contrib.auth import logout
 from datetime import datetime
-from django.shortcuts import render
-from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import Pedido
 from django.http import JsonResponse
 import json
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
 from django.utils import translation
 from .forms import SignUpForm
 
