@@ -12,8 +12,8 @@ import json
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import CustomUserCreationForm
 from django.utils import translation
+from .forms import SignUpForm
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -64,8 +64,8 @@ def pedidoUsuario(request):
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        password = request.POST['password1']
+        user = authenticate(request, username=username, password=password1)
 
         if user is not None:
             login(request, user)
@@ -79,13 +79,13 @@ def login(request):
 
 def register_view(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             
             return redirect('login')
     else:
-        form = CustomUserCreationForm()
+        form = SignUpForm()
 
     return render(request, 'registro.html', {'form': form})
 
