@@ -4,7 +4,8 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/styleUsuario.css' %}">
+<link rel="stylesheet" href="{% static 'css/usuario.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/chatbot.css' %}"> -->
 
 <div class="user-container">
     <div class="user-profile">
@@ -14,38 +15,36 @@
     </div>
     <div class="main-section">
         <div class="accordion">
-            <button class="accordion-btn" onclick="toggleSection('mis-pedidos')"><b>{% trans "MIS PEDIDOS"
-                    %}</b></button>
+            <button class="accordion-btn" onclick="toggleSection('mis-pedidos')"><b>{% trans "MIS PEDIDOS" %}</b></button>
+            <!-- myapp/templates/myapp/usuario.html -->
 
-            <div class="content-section" id="mis-pedidos">
-                <h3>{% trans "Mis Pedidos" %}</h3>
-                <div class="wrapper">
-                    <div class="main">
-                        <div class="contenedor-items">
-                            {% for pedido in pedidos %}
-                            <p>{% trans "Numero de pedido:" %} {{pedido.idPedido}}</p>
-                            <p>{% trans "Importe:" %} {{ pedido.importePedido }}</p>
-                            <hr>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
+<div class="content-section" id="mis-pedidos">
+    <h3>{% trans "Mis Pedidos" %}</h3>
+    <div class="wrapper">
+        <div class="main">
+            <div class="contenedor-items">
+                {% for pedido in pedidos %}
+                    <p>{% trans "Numero de pedido:" %} {{pedido.idPedido}}</p>
+                    <p>{% trans "Importe:" %} {{ pedido.importePedido }}</p>
+                    <hr>
+                {% endfor %}
             </div>
+        </div>
+    </div>
+</div>
 
-            <button class="accordion-btn" onclick="toggleSection('preguntas-frecuentes')"><b>{% trans "PREGUNTAS
-                    FRECUENTES" %}</b></button>
+
+
+            <button class="accordion-btn" onclick="toggleSection('preguntas-frecuentes')"><b>{% trans "PREGUNTAS FRECUENTES" %}</b></button>
             <div class="content-section" id="preguntas-frecuentes">
                 <div class="preguntas">
                     <b>{% trans "¿Quiénes son los repartidores?" %}</b>
-                    <p>{% trans "Los repartidores son mensajeros independientes conectados a nuestra plataforma. Son
-                        personas que disponen de tiempo libre, vehículo y smartphone propio, y buscan sacarle el máximo
-                        rendimiento ayudándote a resolver tus gestiones del modo más rápido y eficaz." %}</p>
+                    <p>{% trans "Los repartidores son mensajeros independientes conectados a nuestra plataforma. Son personas que disponen de tiempo libre, vehículo y smartphone propio, y buscan sacarle el máximo rendimiento ayudándote a resolver tus gestiones del modo más rápido y eficaz." %}</p>
                 </div>
                 <br>
                 <div class="preguntas">
                     <b>{% trans "¿Cómo hago un pedido?" %}</b>
-                    <p>{% trans "Para realizar un pedido en Alo Tle Delisia es muy sencillo. Sigue los siguientes
-                        pasos:" %}
+                    <p>{% trans "Para realizar un pedido en Alo Tle Delisia es muy sencillo. Sigue los siguientes pasos:" %}
                     <ol>
                         <li>{% trans "Elige el tipo de comida que quieres." %}</li>
                         <li>{% trans "Elige el restaurante que quieras." %}</li>
@@ -59,74 +58,53 @@
 
                 <div class="preguntas">
                     <b>{% trans "¿Llega Alo Tle Delisia a mi barrio?" %}</b>
-                    <p>{% trans "Alo Tle Delisia se asegura de indicar correctamente que restaurantes llegan a tu
-                        barrio." %}</p>
+                    <p>{% trans "Alo Tle Delisia se asegura de indicar correctamente que restaurantes llegan a tu barrio." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
                     <b>{% trans "¿Cuándo está abierto Alo Tle Delisia?" %}</b>
-                    <p>{% trans "La mayoría de los restaurantes que trabajan con Alo Tle Delisia ofrecen servicio 24/7.
-                        No obstante, cada establecimiento tiene su propio horario, por lo que es posible que un
-                        establecimiento esté cerrado aunque Alo Tle Delisia esté disponible." %}</p>
+                    <p>{% trans "La mayoría de los restaurantes que trabajan con Alo Tle Delisia ofrecen servicio 24/7. No obstante, cada establecimiento tiene su propio horario, por lo que es posible que un establecimiento esté cerrado aunque Alo Tle Delisia esté disponible." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
                     <b>{% trans "¿Qué puedo pedir?" %}</b>
-                    <p>{% trans "Utiliza la app de Alo Tle Delisia para pedir cualquier producto cercano o hacer tus
-                        envíos exprés en la ciudad. Toda la comida china que te imagines esta disponible en nuestra
-                        app." %}</p>
+                    <p>{% trans "Utiliza la app de Alo Tle Delisia para pedir cualquier producto cercano o hacer tus envíos exprés en la ciudad. Toda la comida china que te imagines esta disponible en nuestra app." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
-                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden
-                        tener mis pedidos?" %}</b>
-                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos
-                        vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de
-                        3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que
-                        necesites teniendo en cuenta estas dimensiones." %}</p>
+                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis pedidos?" %}</b>
+                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta estas dimensiones." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
                     <b>{% trans "¿Transportáis animales?" %}</b>
-                    <p>{% trans "Nos encantaría poder ayudarte a trasladar a tu tortuga o tu serpiente, pero por ahora
-                        este tipo de servicio no está disponible. Esperamos que en un sea posible. Aunque en moto puede
-                        ser que se asusten un poco…" %}</p>
+                    <p>{% trans "Nos encantaría poder ayudarte a trasladar a tu tortuga o tu serpiente, pero por ahora este tipo de servicio no está disponible. Esperamos que en un sea posible. Aunque en moto puede ser que se asusten un poco…" %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
-                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden
-                        tener mis pedidos?" %}</b>
-                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos
-                        vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de
-                        3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que
-                        necesites teniendo en cuenta estas dimensiones." %}</p>
+                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis pedidos?" %}</b>
+                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta estas dimensiones." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
-                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden
-                        tener mis pedidos?" %}</b>
-                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos
-                        vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de
-                        3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que
-                        necesites teniendo en cuenta estas dimensiones." %}</p>
+                    <b>{% trans "¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis pedidos?" %}</b>
+                    <p>{% trans "Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos para transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la compra) y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta estas dimensiones." %}</p>
                 </div>
                 <br>
 
                 <div class="preguntas">
                     <b>{% trans "¿Cómo puedo encontrar lo que busco?" %}</b>
-                    <p>{% trans "En la parte superior de la pantalla, hay un buscador que te permitirá encontrar
-                        cualquier producto o establecimiento de la app en tu ciudad." %}</p>
+                    <p>{% trans "En la parte superior de la pantalla, hay un buscador que te permitirá encontrar cualquier producto o establecimiento de la app en tu ciudad." %}</p>
                 </div>
             </div>
 
-            <button class="accordion-btn" onclick="toggleSection('danos-tu-opinion')"><b>{% trans "DANOS TU OPINION"
-                    %}</b></button>
+            <button class="accordion-btn" onclick="toggleSection('danos-tu-opinion')"><b>{% trans "DANOS TU OPINION" %}</b></button>
             <div class="content-section" id="danos-tu-opinion">
                 <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
 
@@ -157,5 +135,5 @@
             <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         </div>
     </div>
-</div>
-{% endblock %}
+    </div>
+    {% endblock %}

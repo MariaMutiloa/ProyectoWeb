@@ -73,7 +73,7 @@ function pagarClicked() {
             data: {
                 importePedido: total,
                 username: username,
-                idRestaurante: restaurante,
+                id_restaurante: restaurante,
                 productos: productosJSON
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -86,6 +86,8 @@ function pagarClicked() {
                 limpiar();
                 actualizarTotalCarrito();
 
+
+                
             }
         });
     } else {
@@ -114,6 +116,7 @@ function agregarAlCarritoClicked(event) {
 }
 
 
+// Mostramos el botón de pagar si hay productos en el carrito
 function hacerVisibleCarrito() {
     carritoVisible = true;
     var carrito = document.getElementsByClassName('carrito')[0];

@@ -1,7 +1,7 @@
 function ocultarTodosLosRestaurantes() {
   var restaurantes = document.getElementsByClassName('restaurante');
   for (var i = 0; i < restaurantes.length; i++) {
-    mostrarRestaurante(restaurantes[i]);
+    mostrarRestaurante(restaurantes[i]); // Mostrar todos los restaurantes
   }
 }
 
@@ -18,6 +18,7 @@ function filtrarRestaurantes() {
   var restaurantes = document.getElementsByClassName('restaurante');
 
   if (textoBuscado === '') {
+    // Si el campo de búsqueda está vacío, mostrar todos los restaurantes
     ocultarTodosLosRestaurantes();
     return;
   }

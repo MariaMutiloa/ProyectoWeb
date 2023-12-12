@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - MediaPipe Text Classifier for web</title>
+  <link rel="stylesheet" href="{%static css/chatbot.css%}">
+
+</head>
+
+<body>
+<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+  <p><b>Escriba su opinión acerca del servicio ofrecido porfavor:
+    </b>
+  </p>
+  <label class="mdc-text-field mdc-text-field--filled mdc-text-field--textarea mdc-text-field--no-label">
+    <span class="mdc-text-field__ripple"></span>
+    <span class="mdc-text-field__resizer">
+
+      <textarea id="input" class="mdc-text-field__input" rows="8" cols="40" aria-label="Text Input"></textarea>
+    </span>
+    <span class="mdc-line-ripple"></span>
+  </label></br>
+  <button id="submit" class="mdc-button mdc-button--raised">
+    <span class="mdc-button__label">ENVIAR</span>
+  </button></br>
+
+  <p><b>Detección de sentimientos:</b></p>
+  <p id="output"></p>
+</section>
+
+  <script type="module" src="{% static js/chatbot.js%}"></script>
+</body>
+
+</html>

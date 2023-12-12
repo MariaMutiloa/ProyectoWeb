@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.views import LoginView
 from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto, Pedido
 from django.contrib.auth import logout
+from datetime import datetime
+from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import Pedido
 from django.http import JsonResponse
 import json
 from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
 from django.utils import translation
 from .forms import SignUpForm
-
 
 def index(request):
     return render(request, 'myapp/primera.html')
@@ -63,8 +69,9 @@ def login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('principal') 
+            return redirect('principal')  # Cambia 'principal' por la URL a la que quieres redirigir después del inicio de sesión
         else:
+            # Manejar el caso en el que la autenticación falla, por ejemplo, mostrar un mensaje de error
             return render(request, 'myapp/login.html', {'error': 'Credenciales inválidas'})
 
     return render(request, 'myapp/login.html')
@@ -98,13 +105,13 @@ def guardar_pedido(request):
     
         importePedido = request.POST['importePedido']
         username = request.POST['username']
-        idRestaurante = request.POST.get('idRestaurante')
-        restaurante = Restaurante.objects.get(pk=idRestaurante)
+        id_restaurante = request.POST.get('id_restaurante')
+        restaurante = Restaurante.objects.get(pk=id_restaurante)
 
         pedido = Pedido()
         pedido.importePedido = importePedido
         pedido.username = User.objects.get(username=username)
-        pedido.idRestaurante = restaurante
+        pedido.id_restaurante = restaurante
         pedido.save()
 
       
@@ -115,11 +122,11 @@ def guardar_pedido(request):
 
        
         for producto in productos:
-            productoPedido = PedidoProducto()
-            productoPedido.idPedido = pedido
-            productoPedido.idProducto = Producto.objects.get(nombre=producto['titulo'])
-            productoPedido.cantidad = producto['cantidad']
-            productoPedido.save()
+            producto_pedido = PedidoProducto()
+            producto_pedido.idPedido = pedido
+            producto_pedido.idProducto = Producto.objects.get(nombre=producto['titulo'])
+            producto_pedido.cantidad = producto['cantidad']
+            producto_pedido.save()
 
         return JsonResponse({'message': 'Pedido guardado exitosamente'})
 
