@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-12 19:05+0100\n"
+"POT-Creation-Date: 2023-12-12 19:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,6 +94,196 @@ msgstr "Sections"
 #: .\myapp\templates\myapp\unRestaurante.html:52
 msgid "Tu Carrito"
 msgstr "Your Cart"
+
+#: .\myapp\templates\myapp\unRestaurante.html:58
+msgid "Tu Total"
+msgstr "Your total"
+
+#: .\myapp\templates\myapp\unRestaurante.html:63
+msgid "Pagar"
+msgstr "Pay"
+
+#: .\myapp\templates\myapp\usuario.html:13
+msgid "Hola:"
+msgstr "Hello:"
+
+#: .\myapp\templates\myapp\usuario.html:18
+msgid "MIS PEDIDOS"
+msgstr "MY ORDERS"
+
+#: .\myapp\templates\myapp\usuario.html:22
+msgid "Mis Pedidos"
+msgstr "My Orders"
+
+#: .\myapp\templates\myapp\usuario.html:27
+msgid "Numero de pedido:"
+msgstr "Order number: "
+
+#: .\myapp\templates\myapp\usuario.html:28
+msgid "Importe:"
+msgstr "Amount:"
+
+#: .\myapp\templates\myapp\usuario.html:38
+msgid "PREGUNTAS FRECUENTES"
+msgstr "FAQs"
+
+#: .\myapp\templates\myapp\usuario.html:41
+msgid "¿Quiénes son los repartidores?"
+msgstr "¿Who are the delivery drivers?"
+
+#: .\myapp\templates\myapp\usuario.html:42
+msgid ""
+"Los repartidores son mensajeros independientes conectados a nuestra "
+"plataforma. Son personas que disponen de tiempo libre, vehículo y smartphone "
+"propio, y buscan sacarle el máximo rendimiento ayudándote a resolver tus "
+"gestiones del modo más rápido y eficaz."
+msgstr ""
+"The delivery drivers are independent couriers connected to our platform. "
+"They are individuals with free time, their own vehicle, and smartphone, "
+"seeking to make the most of it by helping you solve your tasks in the "
+"fastest and most efficient way."
+
+#: .\myapp\templates\myapp\usuario.html:46
+msgid "¿Cómo hago un pedido?"
+msgstr "¿How do I order?"
+
+#: .\myapp\templates\myapp\usuario.html:47
+msgid ""
+"Para realizar un pedido en Alo Tle Delisia es muy sencillo. Sigue los "
+"siguientes pasos:"
+msgstr ""
+"To place an order on Alo Tle Delisia is very simple. Follow the following "
+"steps:"
+
+#: .\myapp\templates\myapp\usuario.html:49
+msgid "Elige el tipo de comida que quieres."
+msgstr "Select the type of food you want"
+
+#: .\myapp\templates\myapp\usuario.html:50
+msgid "Elige el restaurante que quieras."
+msgstr "Select the restaurant you want."
+
+#: .\myapp\templates\myapp\usuario.html:51
+msgid "Añade los productos al carrito."
+msgstr "Add the products to the cart."
+
+#: .\myapp\templates\myapp\usuario.html:52
+msgid "Comprueba que tienes todo lo que quieres."
+msgstr "Check that you ordered everything you wanted."
+
+#: .\myapp\templates\myapp\usuario.html:53
+msgid "Añade tu dirección y disfruta de la comida."
+msgstr "Add your address and enjoy the food."
+
+#: .\myapp\templates\myapp\usuario.html:60
+msgid "¿Llega Alo Tle Delisia a mi barrio?"
+msgstr "Does Alo Tle Delisia deliver to my neighbour?"
+
+#: .\myapp\templates\myapp\usuario.html:61
+msgid ""
+"Alo Tle Delisia se asegura de indicar correctamente que restaurantes llegan "
+"a tu barrio."
+msgstr ""
+"Alo Tle Delisia makes sure to accurately indicate which restaurants deliver "
+"to your neighborhood."
+
+#: .\myapp\templates\myapp\usuario.html:66
+#, fuzzy
+#| msgid "¿Cuándo está abierto Glovo?"
+msgid "¿Cuándo está abierto Alo Tle Delisia?"
+msgstr "When is Alo Tle Delisia open?"
+
+#: .\myapp\templates\myapp\usuario.html:67
+msgid ""
+"La mayoría de los restaurantes que trabajan con Alo Tle Delisia ofrecen "
+"servicio 24/7. No obstante, cada establecimiento tiene su propio horario, "
+"por lo que es posible que un establecimiento esté cerrado aunque Alo Tle "
+"Delisia esté disponible."
+msgstr ""
+"Most of the restaurants that work with Alo Tle Delisia offer 24/7 service. "
+"However, each establishment has its own schedule, so it's possible that a "
+"restaurant may be closed even if Alo Tle Delisia is available."
+
+#: .\myapp\templates\myapp\usuario.html:72
+msgid "¿Qué puedo pedir?"
+msgstr "What can I order?"
+
+#: .\myapp\templates\myapp\usuario.html:73
+msgid ""
+"Utiliza la app de Alo Tle Delisia para pedir cualquier producto cercano o "
+"hacer tus envíos exprés en la ciudad. Toda la comida china que te imagines "
+"esta disponible en nuestra app."
+msgstr ""
+"Use the Alo Tle Delisia app to order any nearby product or make express "
+"deliveries in the city. All the Chinese food you can imagine is available on "
+"our app."
+
+#: .\myapp\templates\myapp\usuario.html:78
+#: .\myapp\templates\myapp\usuario.html:90
+#: .\myapp\templates\myapp\usuario.html:96
+msgid ""
+"¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué "
+"tamaño pueden tener mis pedidos?"
+msgstr ""
+"What type of vehicles do delivery drivers use for delivery? What size can my "
+"orders be?"
+
+#: .\myapp\templates\myapp\usuario.html:79
+#: .\myapp\templates\myapp\usuario.html:91
+#: .\myapp\templates\myapp\usuario.html:97
+msgid ""
+"Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan "
+"distintos vehículos para transportar lo que quieras, siempre y cuando pese "
+"menos de 9 kg (el volumen de 3-4 bolsas de la compra) y quepa en una caja de "
+"40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta "
+"estas dimensiones."
+msgstr ""
+"Registered delivery drivers on the Alo Tle Delisia platform use various "
+"vehicles to transport anything you want, as long as it weighs less than 9 kg "
+"(the volume of 3-4 shopping bags) and fits in a box of 40x40x30 cm. You can "
+"order anything you need within these dimensions."
+
+#: .\myapp\templates\myapp\usuario.html:84
+msgid "¿Transportáis animales?"
+msgstr "¿Do you deliver animals?"
+
+#: .\myapp\templates\myapp\usuario.html:85
+msgid ""
+"Nos encantaría poder ayudarte a trasladar a tu tortuga o tu serpiente, pero "
+"por ahora este tipo de servicio no está disponible. Esperamos que en un sea "
+"posible. Aunque en moto puede ser que se asusten un poco…"
+msgstr ""
+"We would love to help you transport your turtle or snake, but for now, this "
+"type of service is not available. We hope it will be possible in the future. "
+"Although it might scare them a bit on a motorcycle..."
+
+#: .\myapp\templates\myapp\usuario.html:102
+msgid "¿Cómo puedo encontrar lo que busco?"
+msgstr "How can I find what I am looking for?"
+
+#: .\myapp\templates\myapp\usuario.html:103
+msgid ""
+"En la parte superior de la pantalla, hay un buscador que te permitirá "
+"encontrar cualquier producto o establecimiento de la app en tu ciudad."
+msgstr ""
+"At the top of the screen, there is a search bar that allows you to find any "
+"product or establishment in the app in your city."
+
+#: .\myapp\templates\myapp\usuario.html:107
+msgid "DANOS TU OPINION"
+msgstr "GIVE US YOUR OPINION"
+
+#: .\myapp\templates\myapp\usuario.html:112
+msgid "POR FAVOR, INDIQUENOS SU EXPERIENCIA DE COMPRA:"
+msgstr "PLEASE, TELL US YOUR SHOPPING EXPERIENCE"
+
+#: .\myapp\templates\myapp\usuario.html:126
+msgid "ENVIAR"
+msgstr "SEND"
+
+#: .\myapp\templates\myapp\usuario.html:129
+msgid "Detección de sentimientos:"
+msgstr "Sentiment Analysis"
 
 #: .\myapp\templates\registration\login.html:20
 #: .\myapp\templates\registration\login.html:26
