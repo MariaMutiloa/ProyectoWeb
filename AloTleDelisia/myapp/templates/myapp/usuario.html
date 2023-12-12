@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n%}
 {% block title %}Página de Usuario{% endblock %}
 
 {% block content %}
@@ -10,17 +10,29 @@
 <div class="user-container">
     <div class="user-profile">
         <div class="profile-section">
-            <p>{{ usuario.username }}</p>
-            <p>Correo del Usuario</p>
+            <h2>Hola: {{usuario.first_name }} </h2>
         </div>
     </div>
     <div class="main-section">
         <div class="accordion">
             <button class="accordion-btn" onclick="toggleSection('mis-pedidos')"><b>MIS PEDIDOS</b></button>
-            <div class="content-section" id="mis-pedidos">
-                <h3>Mis Pedidos</h3>
-                <p>Contenido de la sección de Mis Pedidos...</p>
+            <!-- myapp/templates/myapp/usuario.html -->
+
+<div class="content-section" id="mis-pedidos">
+    <h3>Mis Pedidos</h3>
+    <div class="wrapper">
+        <div class="main">
+            <div class="contenedor-items">
+                {% for pedido in pedidos %}
+                    <p>Numero de pedido: {{pedido.idPedido}}</p>
+                    <p>Importe: {{ pedido.importePedido }}</p>
+                    <hr>
+                {% endfor %}
             </div>
+        </div>
+    </div>
+</div>
+
 
 
             <button class="accordion-btn" onclick="toggleSection('preguntas-frecuentes')"><b>PREGUNTAS
@@ -159,5 +171,6 @@
             <script type="module" src="{% static 'js/chatbot.js' %}"></script>
             <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         </div>
+    </div>
     </div>
     {% endblock %}

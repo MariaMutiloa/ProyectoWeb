@@ -48,14 +48,14 @@ def restaurante(request, nombreRestaurante):
     return render(request, 'unRestaurante.html', context)
 
 def pedidoUsuario(request):
-    username = request.user.username
-    pedido = Pedido.objects.all()
-    productoPedido= PedidoProducto.objects.all()
+    usuario = request.user
+    pedidosUsuario = Pedido.objects.filter(username=usuario)
+    productosPedido = PedidoProducto.objects.filter(idPedido__in=pedidosUsuario)
 
     context = {
-        'usuario': username,
-        'productos': productoPedido,
-        'pedido': pedido,
+        'usuario': usuario,
+        'pedidos': pedidosUsuario,
+        'productosPedido': productosPedido,
     }
     return render(request, 'myapp/usuario.html', context)
 
