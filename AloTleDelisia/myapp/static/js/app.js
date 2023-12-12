@@ -73,7 +73,7 @@ function pagarClicked() {
             data: {
                 importePedido: total,
                 username: username,
-                id_restaurante: restaurante,
+                idRestaurante: restaurante,
                 productos: productosJSON
             },
             error: function (jqXHR, textStatus, errorThrown) {
