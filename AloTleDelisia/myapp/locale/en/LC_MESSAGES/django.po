@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-12 19:48+0100\n"
+"POT-Creation-Date: 2023-12-12 20:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -297,6 +297,36 @@ msgstr "Do you need an account?"
 #: .\myapp\templates\registration\login.html:28
 msgid "Registrar"
 msgstr "Register"
+
+#: .\myapp\urls.py:9
+msgid "principal"
+msgstr "main"
+
+#: .\myapp\urls.py:11
+msgid "cerrar-sesion/"
+msgstr "sign-out/"
+
+#: .\myapp\urls.py:12
+msgid "restaurantes/"
+msgstr "restaurants/"
+
+#: .\myapp\urls.py:14
+msgid "restaurante/"
+msgstr "restaurant/"
+
+#: .\myapp\urls.py:16
+msgid "pedidos/guardar"
+msgstr "orders/save"
+
+#: .\myapp\urls.py:17
+#, fuzzy
+#| msgid "Registro"
+msgid "registro/"
+msgstr "sign-up/"
+
+#: .\myapp\urls.py:19
+msgid "miPerfil/"
+msgstr "myprofile/"
 
 #, fuzzy
 #~| msgid "Iniciar Sesión"
