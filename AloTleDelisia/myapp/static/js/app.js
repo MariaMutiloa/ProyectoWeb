@@ -115,8 +115,6 @@ function agregarAlCarritoClicked(event) {
     hacerVisibleCarrito();
 }
 
-
-// Mostramos el botón de pagar si hay productos en el carrito
 function hacerVisibleCarrito() {
     carritoVisible = true;
     var carrito = document.getElementsByClassName('carrito')[0];
