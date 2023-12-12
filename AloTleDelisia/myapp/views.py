@@ -63,9 +63,8 @@ def login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('principal')  # Cambia 'principal' por la URL a la que quieres redirigir después del inicio de sesión
+            return redirect('principal') 
         else:
-            # Manejar el caso en el que la autenticación falla, por ejemplo, mostrar un mensaje de error
             return render(request, 'myapp/login.html', {'error': 'Credenciales inválidas'})
 
     return render(request, 'myapp/login.html')

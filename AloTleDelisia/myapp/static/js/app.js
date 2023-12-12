@@ -86,8 +86,6 @@ function pagarClicked() {
                 limpiar();
                 actualizarTotalCarrito();
 
-
-                
             }
         });
     } else {
@@ -116,7 +114,6 @@ function agregarAlCarritoClicked(event) {
 }
 
 
-// Mostramos el botón de pagar si hay productos en el carrito
 function hacerVisibleCarrito() {
     carritoVisible = true;
     var carrito = document.getElementsByClassName('carrito')[0];
