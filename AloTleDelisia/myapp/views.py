@@ -76,15 +76,15 @@ def register_view(request):
 
     return render(request, 'registro.html', {'form': form})
 
-
-
-
 def categoria(request):
     categorias = TipoRestaurante.objects.all()
 
     context = {'categorias': categorias}
 
     return render(request, 'myapp/principal.html', context)
+
+def usuario(request):
+    return render(request, 'myapp/usuario.html')
 
 def cerrar(request):
     logout(request)

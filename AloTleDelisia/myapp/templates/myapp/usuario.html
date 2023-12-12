@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}Página de Usuario{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/usuario.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/chatbot.css' %}"> -->
+
+<div class="user-container">
+    <div class="user-profile">
+        <div class="profile-section">
+            <h2>Nombre de Usuario</h2>
+            <p>Correo del Usuario</p>
+        </div>
+    </div>
+    <div class="main-section">
+        <div class="accordion">
+            <button class="accordion-btn" onclick="toggleSection('mis-pedidos')"><b>MIS PEDIDOS</b></button>
+            <div class="content-section" id="mis-pedidos">
+                <h3>Mis Pedidos</h3>
+                <p>Contenido de la sección de Mis Pedidos...</p>
+            </div>
+
+
+            <button class="accordion-btn" onclick="toggleSection('preguntas-frecuentes')"><b>PREGUNTAS
+                    FRECUENTES</b></button>
+            <div class="content-section" id="preguntas-frecuentes">
+                <div class="preguntas">
+                    <b>¿Quiénes son los repartidores?</b>
+                    <p>Los repartidores son mensajeros independientes conectados a nuestra plataforma. Son personas que
+                        disponen
+                        de tiempo libre, vehículo y smartphone propio, y buscan sacarle el máximo rendimiento ayudándote
+                        a
+                        resolver tus gestiones del modo más rápido y eficaz.</p>
+                </div>
+                <br>
+                <div class="preguntas">
+                    <b>¿Cómo hago un pedido?</b>
+                    <p>Para realizar un pedido en Alo Tle Delisia es muy sencillo. Sigue los siguientes pasos:
+                    <ol>
+                        <li>Elige el tipo de comida que quieres.</li>
+                        <li>Elige el restaurante que quieras.</li>
+                        <li>Añade los productos al carrito.</li>
+                        <li>Comprueba que tienes todo lo que quieres.</li>
+                        <li>Añade tu dirección y disfruta de la comida.</li>
+                    </ol>
+                    </p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Llega Alo Tle Delisia a mi barrio?</b>
+                    <p>Alo Tle Delisia se asegura de indicar correctamente que restaurantes llegan a tu barrio.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Cuándo está abierto Glovo?</b>
+                    <p>La mayoría de los restaurantes que trabajan con Alo Tle Delisia ofrecen servicio 24/7. No
+                        obstante, cada
+                        establecimiento tiene su propio horario, por lo que es posible que un establecimiento esté
+                        cerrado
+                        aunque Alo Tle Delisia esté disponible.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Qué puedo pedir?</b>
+                    <p>Utiliza la app de Alo Tle Delisia para pedir cualquier producto cercano o hacer tus envíos exprés
+                        en la
+                        ciudad. Toda la comida china que te imagines esta disponible en nuestra app.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis
+                        pedidos?</b>
+                    <p>Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos
+                        para
+                        transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la
+                        compra)
+                        y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta
+                        estas
+                        dimensiones.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Transportáis animales?</b>
+                    <p>Nos encantaría poder ayudarte a trasladar a tu tortuga o tu serpiente, pero por ahora este tipo
+                        de
+                        servicio no está disponible. Esperamos que en un sea posible. Aunque en moto puede ser que se
+                        asusten un
+                        poco…</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis
+                        pedidos?</b>
+                    <p>Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos
+                        para
+                        transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la
+                        compra)
+                        y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta
+                        estas
+                        dimensiones.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Qué tipo de vehículos utilizan los repartidores para la entrega? ¿Qué tamaño pueden tener mis
+                        pedidos?</b>
+                    <p>Los repartidores registrados en la plataforma de Alo Tle Delisia utilizan distintos vehículos
+                        para
+                        transportar lo que quieras, siempre y cuando pese menos de 9 kg (el volumen de 3-4 bolsas de la
+                        compra)
+                        y quepa en una caja de 40x40x30 cm. Podrás pedir cualquier cosa que necesites teniendo en cuenta
+                        estas
+                        dimensiones.</p>
+                </div>
+                <br>
+
+                <div class="preguntas">
+                    <b>¿Cómo puedo encontrar lo que busco?</b>
+                    <p>En la parte superior de la pantalla, hay un buscador que te permitirá encontrar cualquier
+                        producto o establecimiento de la app en tu ciudad.</p>
+                </div>
+            </div>
+
+            <button class="accordion-btn" onclick="toggleSection('danos-tu-opinion')"><b>DANOS TU OPINION</b></button>
+            <div class="content-section" id="danos-tu-opinion">
+                <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+
+                <section id="demos" class="invisible">
+                    <p><b>POR FAVOR, INDIQUENOS SU EXPERIENCIA DE COMPRA:
+                        </b>
+                    </p>
+                    <label
+                        class="mdc-text-field mdc-text-field--filled mdc-text-field--textarea mdc-text-field--no-label">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-text-field__resizer">
+
+                            <textarea id="input" class="mdc-text-field__input" rows="8" cols="40"
+                                aria-label="Text Input"></textarea>
+                        </span>
+                        <span class="mdc-line-ripple"></span>
+                    </label></br>
+                    <button id="submit" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">ENVIAR</span>
+                    </button></br>
+
+                    <p><b>Detección de sentimientos:</b></p>
+                    <p id="output"></p>
+                </section>
+            </div>
+            <script src="{% static 'js/usuario.js' %}"></script>
+            <script type="module" src="{% static 'js/chatbot.js' %}"></script>
+            <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        </div>
+    </div>
+    {% endblock %}

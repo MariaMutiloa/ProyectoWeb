@@ -4,19 +4,22 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% trans "ALO TLE DELISIA - Página Principal" %} {% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/stylePrincipal.css' %}">
 </head>
+
 <body>
     <div class="header-desktop">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col d-flex justify-content-start">
                     <button class="logo-btn-desktop">
-                        <a href="{% url 'principal' %}"><img src="{% static 'imagenes/logo.png' %}" alt="LOGO" ></a>
+                        <a href="{% url 'principal' %}"><img src="{% static 'imagenes/logo.png' %}" alt="LOGO"></a>
                     </button>
                 </div>
                 <div class="col d-flex justify-content-center">
@@ -24,7 +27,9 @@
                 </div>
                 <div class="col d-flex justify-content-end">
                     <button class="usuario-btn-desktop">
-                        <img src="{% static 'imagenes/perfil.png' %}" alt="USUARIO">
+                        <a href={% url 'usuario' %}>
+                            <img src="{% static 'imagenes/perfil.png' %}" alt="USUARIO">
+                        </a>
                     </button>
                     <button class="cerrar-btn-desktop">
                         <a href="{% url 'cerrar' %}">
@@ -38,7 +43,7 @@
                         <option value="es" {% if request.LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
                     </select>
                 </div>
-            </div>                
+            </div>
         </div>
     </div>
 
@@ -52,7 +57,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-content">
-                        <a href="{% url 'principal' %}"><img src="{% static 'imagenes/logo.png' %}" alt="Logo" class="footer-logo"></a>
+                        <a href="{% url 'principal' %}"><img src="{% static 'imagenes/logo.png' %}" alt="Logo"
+                                class="footer-logo"></a>
                         <h4>{% trans "Colabora con nosotros"%}</h4>
                         <ul style="list-style: none; padding: 0;">
                             <li>{% trans "Trabaja con nosotros"%}</li>
@@ -87,12 +93,12 @@
     <script>
         // Obtén el elemento select
         const languageSelect = document.getElementById('languageSelect');
-    
+
         // Añade un evento de cambio al select
         languageSelect.addEventListener('change', function () {
             // Obtén el valor seleccionado
             const selectedLanguage = languageSelect.value;
-    
+
             // Redirige a la vista con el nuevo idioma
             window.location.href = `{% url 'set_language' %}?language=${selectedLanguage}`;
         });
@@ -100,4 +106,5 @@
 
 
 </body>
+
 </html>
