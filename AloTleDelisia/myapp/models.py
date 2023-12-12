@@ -51,11 +51,6 @@ class PedidoProducto(models.Model):
     idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
 
-class ProductoMenu(models.Model):
-    idProductoMenu = models.AutoField(primary_key=True)
-    idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    idMenu = models.ForeignKey(Menu, on_delete=models.CASCADE)
-
 
 
 #Clase con metodos para creacion de usuarios, tanto normales como superUsers.
@@ -91,7 +86,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     password = models.CharField(max_length=128)
 
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False) #Para dar permiso a que entre en el sitio de administracion
+    is_staff = models.BooleanField(default=True) #Para dar permiso a que entre en el sitio de administracion
     groups = models.ManyToManyField(Group, verbose_name='grupos', blank=True, help_text='Los grupos a los que pertenece el usuario', related_name='customuser_groups')
     user_permissions = models.ManyToManyField(Permission, verbose_name='permisos de usuario', blank=True, help_text='Los permisos específicos concedidos a este usuario', related_name='customuser_permissions')
 

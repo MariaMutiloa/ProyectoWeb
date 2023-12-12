@@ -1,6 +1,6 @@
-if(document.readyState == 'loading'){
+if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
-}else{
+} else {
     ready();
 }
 
@@ -43,61 +43,63 @@ botonPagar.style.display = 'block'
 function pagarClicked() {
     var direccion = prompt('Por favor, ingresa tu dirección de entrega:');
     if (direccion !== null && direccion !== '') {
-    alert('Gracias por comprar');
+        alert('Gracias por comprar');
 
-    var total = parseFloat(document.getElementsByClassName('carrito-precio-total')[0].innerText.replace('€', '').replace(',', '.'));
-    var username = currentUser;
+        var total = parseFloat(document.getElementsByClassName('carrito-precio-total')[0].innerText.replace('€', '').replace(',', '.'));
+        var username = currentUser;
 
-    var restaurante = idRestaurante;
-    var carritoItems = document.getElementsByClassName('carrito-item');
-    var productos = [];
-    for (var i = 0; i < carritoItems.length; i++) {
-        var item = carritoItems[i];
-        var titulo = item.getElementsByClassName('carrito-item-titulo')[0].innerText;
-        var precio = parseFloat(item.getElementsByClassName('carrito-item-precio')[0].innerText.replace('€', '').replace(',', '.'));
-        var cantidad = parseInt(item.getElementsByClassName('carrito-item-cantidad')[0].value);
-     
-        var producto = {
-            titulo: titulo,
-            precio: precio,
-            cantidad: cantidad
-        };
-        productos.push(producto);
+        var restaurante = idRestaurante;
+        var carritoItems = document.getElementsByClassName('carrito-item');
+        var productos = [];
+        for (var i = 0; i < carritoItems.length; i++) {
+            var item = carritoItems[i];
+            var titulo = item.getElementsByClassName('carrito-item-titulo')[0].innerText;
+            var precio = parseFloat(item.getElementsByClassName('carrito-item-precio')[0].innerText.replace('€', '').replace(',', '.'));
+            var cantidad = parseInt(item.getElementsByClassName('carrito-item-cantidad')[0].value);
+
+            var producto = {
+                titulo: titulo,
+                precio: precio,
+                cantidad: cantidad
+            };
+            productos.push(producto);
+        }
+
+        var productosJSON = JSON.stringify(productos);
+
+        $.ajax({
+            url: '/pedidos/guardar',
+            type: 'POST',
+            data: {
+                importePedido: total,
+                username: username,
+                id_restaurante: restaurante,
+                productos: productosJSON
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log("Error:", textStatus, errorThrown);
+            },
+            success: function (data) {
+
+                console.log(data);
+
+                actualizarTotalCarrito();
+                limpiar();
+                
+            }
+        });
+    } else {
+        alert('Por favor, ingresa una dirección válida para realizar el pedido.');
     }
-
-    var productosJSON = JSON.stringify(productos);
-    
-$.ajax({
-    url: '/pedidos/guardar',
-    type: 'POST',
-    data: {
-        importePedido: total,
-        username: username,
-        id_restaurante: restaurante,
-        productos: productosJSON  
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Error:", textStatus, errorThrown);
-    },
-    success: function(data) {
-
-        console.log(data);
-
-        var carritoContenedor = document.querySelector('.carrito-items');
-        while (carritoContenedor.firstChild) {
-            carritoContenedor.removeChild(carritoContenedor.firstChild);
-    }
-    actualizarTotalCarrito();
-    }
-});
-} else {
-    alert('Por favor, ingresa una dirección válida para realizar el pedido.');
 }
-}
-    
 
-  
-function agregarAlCarritoClicked(event){
+function limpiar(){
+    var carritoContenedor = document.querySelector('.carrito-items');
+                carritoContenedor.innerHTML = '';
+}
+
+
+function agregarAlCarritoClicked(event) {
     console.log("Botón 'Añadir al carrito' clickeado");
     var button = event.target;
     var item = button.parentElement;
@@ -122,18 +124,18 @@ function hacerVisibleCarrito() {
     var elementosCarrito = document.getElementsByClassName('carrito-item');
     var hayProductos = elementosCarrito.length > 0;
 
-    botonPagar.style.display = hayProductos ? 'block' : 'none'; 
+    botonPagar.style.display = hayProductos ? 'block' : 'none';
 }
 
 
-function agregarItemAlCarrito(titulo, precio, imagenSrc){
+function agregarItemAlCarrito(titulo, precio, imagenSrc) {
     var item = document.createElement('div');
     item.classList.add = ('item');
     var itemsCarrito = document.getElementsByClassName('carrito-items')[0];
 
     var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
-    for(var i=0;i < nombresItemsCarrito.length;i++){
-        if(nombresItemsCarrito[i].innerText==titulo){
+    for (var i = 0; i < nombresItemsCarrito.length; i++) {
+        if (nombresItemsCarrito[i].innerText == titulo) {
             alert("El item ya se encuentra en el carrito");
             return;
         }
@@ -159,19 +161,19 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc){
     item.innerHTML = itemCarritoContenido;
     itemsCarrito.append(item);
 
-     item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', eliminarItemCarrito);
+    item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', eliminarItemCarrito);
 
     var botonSumarCantidad = item.getElementsByClassName('btn-sumar-cantidad')[0];
-    botonSumarCantidad.addEventListener('click',sumarCantidad);
+    botonSumarCantidad.addEventListener('click', sumarCantidad);
 
     var botonRestarCantidad = item.getElementsByClassName('btn-restar-cantidad')[0];
-    botonRestarCantidad.addEventListener('click',restarCantidad);
+    botonRestarCantidad.addEventListener('click', restarCantidad);
 
     actualizarTotalCarrito();
 }
 
 
-function sumarCantidad(event){
+function sumarCantidad(event) {
     var buttonClicked = event.target;
     var selector = buttonClicked.parentElement;
     console.log(selector.getElementsByClassName('carrito-item-cantidad')[0].value);
@@ -181,13 +183,13 @@ function sumarCantidad(event){
     actualizarTotalCarrito();
 }
 
-function restarCantidad(event){
+function restarCantidad(event) {
     var buttonClicked = event.target;
     var selector = buttonClicked.parentElement;
     console.log(selector.getElementsByClassName('carrito-item-cantidad')[0].value);
     var cantidadActual = selector.getElementsByClassName('carrito-item-cantidad')[0].value;
     cantidadActual--;
-    if(cantidadActual>=1){
+    if (cantidadActual >= 1) {
         selector.getElementsByClassName('carrito-item-cantidad')[0].value = cantidadActual;
         actualizarTotalCarrito();
     }
@@ -196,19 +198,19 @@ function restarCantidad(event){
 function eliminarItemCarrito(event) {
     var buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
-  
+
     // Verificamos si quedan productos en el carrito
     var carritoItems = document.getElementsByClassName('carrito-item');
     var hayProductos = carritoItems.length > 0;
-  
-    if (!hayProductos) {
-      botonPagar.style.display = 'none';
-    }
-  
-    actualizarTotalCarrito();
-  }
 
-  function actualizarTotalCarrito() {
+    if (!hayProductos) {
+        botonPagar.style.display = 'none';
+    }
+
+    actualizarTotalCarrito();
+}
+
+function actualizarTotalCarrito() {
     var carritoContenedor = document.querySelector('.carrito-items');
     var carritoItems = carritoContenedor.getElementsByClassName('carrito-item');
     var total = 0;
@@ -228,7 +230,7 @@ function eliminarItemCarrito(event) {
     document.querySelector('.carrito-precio-total').innerText = total.toLocaleString("es", { style: 'currency', currency: 'EUR' });
 
     var botonPagar = document.querySelector('.btn-pagar');
-    botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none'; 
+    botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none';
 }
 
 

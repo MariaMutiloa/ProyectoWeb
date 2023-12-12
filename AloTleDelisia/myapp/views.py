@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
-from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto
+from .models import Producto, TipoRestaurante, TipoProducto, Restaurante, PedidoProducto, Pedido
 from django.contrib.auth import logout
 from datetime import datetime
 from django.shortcuts import render
@@ -47,6 +47,19 @@ def restaurante(request, nombreRestaurante):
     }
     return render(request, 'unRestaurante.html', context)
 
+def pedidoUsuario(request):
+    username = request.user.username
+    pedido = Pedido.objects.all()
+    productoPedido= PedidoProducto.objects.all()
+
+    context = {
+        'usuario': username,
+        'productos': productoPedido,
+        'pedido': pedido,
+    }
+    return render(request, 'myapp/usuario.html', context)
+
+
 
 def login(request):
     if request.method == 'POST':
@@ -82,9 +95,6 @@ def categoria(request):
     context = {'categorias': categorias}
 
     return render(request, 'myapp/principal.html', context)
-
-def usuario(request):
-    return render(request, 'myapp/usuario.html')
 
 def cerrar(request):
     logout(request)
