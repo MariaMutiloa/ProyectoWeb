@@ -131,7 +131,6 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc){
     item.classList.add = ('item');
     var itemsCarrito = document.getElementsByClassName('carrito-items')[0];
 
-    //controlamos que el item que intenta ingresar no se encuentre en el carrito
     var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for(var i=0;i < nombresItemsCarrito.length;i++){
         if(nombresItemsCarrito[i].innerText==titulo){
@@ -203,7 +202,6 @@ function eliminarItemCarrito(event) {
     var hayProductos = carritoItems.length > 0;
   
     if (!hayProductos) {
-      // Ocultamos el botón "Pagar" si no hay productos en el carrito
       botonPagar.style.display = 'none';
     }
   
@@ -230,7 +228,7 @@ function eliminarItemCarrito(event) {
     document.querySelector('.carrito-precio-total').innerText = total.toLocaleString("es", { style: 'currency', currency: 'EUR' });
 
     var botonPagar = document.querySelector('.btn-pagar');
-    botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none'; // Mostrar el botón si hay elementos en el carrito, ocultarlo si no hay
+    botonPagar.style.display = carritoItems.length > 0 ? 'block' : 'none'; 
 }
 
 
